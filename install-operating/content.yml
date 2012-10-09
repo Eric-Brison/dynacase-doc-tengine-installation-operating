@@ -1,8 +1,0 @@
-book:
-    title: "Dynacase Transformation Engine 1.3"
-    edition: "1"
-    chapters: 
-        - number:   "1"
-          content:  "installation.md"
-        - number:   "2"
-          content:  "configuration-dynacase.md"
