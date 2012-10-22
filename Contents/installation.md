@@ -28,7 +28,7 @@ __Note__ : Si vous avez un compte EEC, il est recommandé de télécharger dynac
 #### Créer une base `te` sur votre serveur de base de données
 
     # su postgres -c psql
-    postgres=# CREATE DATABASE "te" WITH OWNER "te";
+    postgres=# CREATE DATABASE "te" WITH OWNER "dynacaseowner";
 
 #### Créer/ajouter le service postgresql pour l'accès à cette base `te`
 
