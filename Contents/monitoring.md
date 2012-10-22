@@ -1,4 +1,4 @@
-*[TE]: Dynacase Transformation Engine
+*[TE]: Transformation Engine
 
 # Monitoring
 

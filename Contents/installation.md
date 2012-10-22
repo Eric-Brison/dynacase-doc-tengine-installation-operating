@@ -1,10 +1,10 @@
-*[TE]: Dynacase Transformation Engine
+*[TE]: Transformation Engine
 
 # Installation
 
 ## Installation
 
-TE est disponible sous forme d'archive à installer sur un serveur dédié (ou non) qui assurera la fonction de serveur de transformation pour une plateforme Dynacase.
+TE est disponible sous forme d'archive à installer sur un serveur dédié (ou non) qui assurera la fonction de serveur de transformation pour Dynacase.
 
 ### Télécharger et décompresser l'archive `dynacase-te-current.tar.gz`
 
