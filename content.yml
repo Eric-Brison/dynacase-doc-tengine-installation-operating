@@ -1,6 +1,6 @@
 book:
     title: "Installation et exploitation"
-    module: "Dynacase Tranformation Engine"
+    module: "Tranformation Engine"
     version: "1.3"
     edition: "1"
     githubsrc: "https://github.com/Anakeen/dynacase-doc-tengine-installation-operating"
