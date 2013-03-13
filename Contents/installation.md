@@ -8,7 +8,7 @@ TE est disponible sous forme d'archive à installer sur un serveur dédié (ou n
 
 ### Télécharger et décompresser l'archive `dynacase-te-current.tar.gz`
 
-    # wget http://eec.anakeen.com/public/tengine/dynacase-te-current.tar.gz
+    # wget http://dynacase.anakeen.com/tengine/dynacase-te-current.tar.gz
     # tar zxvf dynacase-te-current.tar.gz
 
 L'archive se décompresse et crée un sous-répertoire `dynacase-te-${VERSION}-${RELEASE}` avec le numéro de version et de release de dynacase-te.
