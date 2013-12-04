@@ -1,0 +1,244 @@
+/*
+    Gestion des flags
+ */
+
+.item\:toc span.flag,
+.item\:subtoc span.flag,
+span.flag {
+    border-width: 1px;
+    border-radius : 3px;
+    padding:0 2px;
+    display:inline-block;
+    font-size: 8pt;
+    font-weight: normal;
+}
+
+span.flag.wip {
+    background-color: #CC7272;
+    color: white;
+}
+
+span.flag.draft {
+    background-color: #B87B1F;
+    color: white;
+}
+
+span.flag.need-review {
+    background-color: #57B1E4;
+    color: white;
+}
+
+span.flag.new {
+    background-color: #008821;
+    color: white;
+}
+
+span.flag.next-release {
+    background-color: #0D5EC9;
+    color: white;
+}
+
+.flags-banner {
+    position:fixed;
+    top: 5em;
+    right: -4em;
+    font-weight: bold;
+    color: #fff;
+    background-color: black;
+    text-align: center;
+    width: 20em;
+    height: 2em;
+    line-height: 2em;
+    border-radius: 3px;
+    border: 1px solid #fff;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+
+    /* Safari */
+    -webkit-transform: rotate(45deg);
+
+    /* Firefox */
+    -moz-transform: rotate(45deg);
+
+    /* IE */
+    -ms-transform: rotate(45deg);
+
+    /* Opera */
+    -o-transform: rotate(45deg);
+
+    /* Internet Explorer */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
+.flags-banner.flag-wip {
+    background-color: #CC7272;
+}
+
+.flags-banner.flag-draft {
+    background-color: #B87B1F;
+}
+
+.flags-banner.flag-need-review {
+    background-color: #57B1E4;
+}
+
+.flags-banner.flag-new {
+    background-color: #008821;
+}
+
+.flags-banner.flag-next-release {
+    background-color: #0D5EC9;
+}
+
+.flags-banner.flag-new.flag-next-release {
+    background: linear-gradient(to right,  #008821, #0D5EC9);
+    color: white;
+}
+.flags-banner.flag-new.flag-draft {
+    background: linear-gradient(to right,  #008821, #B87B1F);
+    color: white;
+}
+.flags-banner.flag-new.flag-need-review {
+    background: linear-gradient(to right,  #008821, #57B1E4);
+    color: white;
+}
+/*
+    Gestion des tables
+ */
+
+.table{
+    overflow: auto;
+}
+
+/*
+    BlockQuotes
+ */
+
+blockquote {
+    font-style: italic;
+    margin: 0.15em 0;
+    padding: 1px 1.5em;
+    line-height: 1.2;
+    position: relative;
+}
+
+blockquote:before {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    display: block;
+    content: "\201C";
+    font-size: 3em;
+    position: absolute;
+    left: -0.1em;
+    top: -0.1em;
+    color: #7a7a7a;
+}
+
+blockquote cite {
+    color: #999999;
+    font-size: 0.8em;
+    display: block;
+    margin-top: 5px;
+}
+ 
+blockquote cite:before {
+    content: "\2014 \2009";
+}
+
+.chunk_nav, .copy{
+    background-color: rgba(80,80,80,0.15);
+    transition: all 1s ease-in-out;
+}
+
+.chunk_toc li.title {
+    background-color: rgba(138, 226, 52, 0.5);
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.searchZone li.title {
+    background-color: rgba(250, 173, 57, 0.5);
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.chunk_nav_hover, .copy_hover
+ {
+    background-color: rgb(80,80,80);
+}
+
+.chunk_toc li.title_hover {
+    background-color: rgb(138, 226, 52);
+}
+
+.searchZone li.title_hover {
+    background-color: rgb(250, 173, 57);
+}
+
+a code {
+    color: #247FCA;
+}
+a:hover code {
+    color: #ffffff;
+    background-color: #8AE234;
+}
+.chunk_toc {
+    opacity: 0.85;
+}
+.chunk_toc li {
+    background-color: #fff;
+    color : black;
+}
+.chunk_toc a {
+    color : black;
+}
+/* Pour les profil */
+.aclgreen {
+    background-color:#90EE90; /*lightgreen*/
+    border-radius:5px;
+    font-weight: bold;
+    font-size:150%;
+    padding-left:0.5em;
+    padding-right:0.5em;
+}
+.aclgrey {
+    background-color:#D3D3D3; /*lightgray*/
+    border-radius:5px;
+    font-weight: bold;
+    font-size:150%;
+    padding-left:0.5em;
+    padding-right:0.5em;
+}
+
+.ok {
+    background-color:#90EE90; /*lightgreen*/
+    border-radius:5px;
+    padding-left:0.5em;
+    padding-right:0.5em;
+}
+.ko {
+    background-color:#EE9090; /*lightred*/
+    border-radius:5px;
+    padding-left:0.5em;
+    padding-right:0.5em;
+}
+
+.xml .re1, .xml .re2 {
+    color: #2100D5;
+    font-weight: normal;
+}
+@media (max-width: 768px) {
+    .copy {
+        position: static;
+    }
+    .chunk_nav {
+        position: static;
+    }
+    .container {
+        margin :0;
+    }
+}

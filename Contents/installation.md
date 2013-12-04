@@ -33,9 +33,9 @@ __Note__ : Si vous avez un compte EEC, il est recommandé de télécharger dynac
 #### Créer/ajouter le service postgresql pour l'accès à cette base `te`
 
     # vi ${PGSYSCONFDIR}/pg_service.conf
-
-     ...
-
+    
+    ...
+    
     [te]
     host=127.0.0.1
     port=5432
@@ -43,7 +43,7 @@ __Note__ : Si vous avez un compte EEC, il est recommandé de télécharger dynac
     password=password
     dbname=te
 
-Note: La valeur de `${PGSYSCONFDIR}` est dépendante de votre distribution, et peut être trouvée avec la commande : `pg_config --sysconfdir`.
+__Note__ : La valeur de `${PGSYSCONFDIR}` est dépendante de votre distribution, et peut être trouvée avec la commande : `pg_config --sysconfdir`.
 
 #### Valider l'accès à la base de donnée `te`
 
@@ -62,18 +62,22 @@ Le nombre maximum de connections à la base de données est donc donné par la f
 
 ### Installation des éléments additionnels
 
+#### OpenOffice {#openoffice}
+
+Installer OpenOffice 4.0 à partir des paquets officiels [OpenOffice](http://www.openoffice.org/).
+
 #### tika-app {#tika-app}
 
-L'archive `tika-app-0.9.jar` peut être obtenue en compilant les sources de [Apache Tika 0.9](http://tika.apache.org/download.html), ou bien sous forme pré-compilée sur notre dépôt *third-party* : [Tika](http://ftp.dynacase.org/third-party/tika-app-0.9.jar)
+L'archive `tika-app-1.4.jar` peut être obtenue en compilant les sources de [Apache Tika 1.4](http://tika.apache.org/download.html), ou bien sous forme pré-compilée sur notre dépôt *third-party* : [Tika](http://ftp.dynacase.org/third-party/tika-app-1.4.jar)
 
-La compilation de `apache-tika-0.9-src.zip` avec maven (`mvn`) peut nécessiter l'augmentation des limites mémoire de la JVM :
+La compilation de `tika-1.4-src.zip` avec maven (`mvn`) peut nécessiter l'augmentation des limites mémoire de la JVM :
 
-    $ cd apache-tika-0.9
+    $ cd tika-1.4
     $ MAVEN_OPTS=-Xmx2048m mvn -e clean install
 
 L'archive JAR de `tika-app` doit ensuite être déposée dans le sous-répertoire `$TE_HOME/lib/engines` :
 
-    # cp tika-app/target/tika-app-0.9.jar $TE_HOME/lib/engines/
+    # cp tika-app/target/tika-app-1.4.jar $TE_HOME/lib/engines/
 
 ## Configuration du serveur TE
 
@@ -85,61 +89,64 @@ Lors de la première utilisation il vous faudra copier le fichier d'exemple `te.
 
 Les paramètres à ajuster en fonction de votre environnement sont :
 
-  * __Répertoire temporaire de travail__
+### Répertoire temporaire de travail
 
-| Répertoire                   | Définition                                                                  |
-| -----------                  | -----------                                                                 |
-| REQUEST_DIRECTORY=/var/tmp   | Répertoire temporaire de travail du serveur request et des scripts engines. |
-| RENDERING_DIRECTORY=/var/tmp | Répertoire temporaire de travail du serveur rendering.                      |
+`REQUEST_DIRECTORY=/var/tmp`
+:   Répertoire temporaire de travail du serveur request et des scripts engines.
 
-  * __Adresse et port d'écoute TCP__
+`RENDERING_DIRECTORY=/var/tmp`
+:   Répertoire temporaire de travail du serveur rendering.
 
-| Config                 | Définition                     |
-| ---                    | ---                            |
-| LISTEN_ADDRESS=0.0.0.0 | Adresse d'écoute du serveur TE |
-| PORT=51968             | Port d'écoute du serveur TE    |
+### Adresse et port d'écoute TCP
 
-  * __Accès base de donnée__
+`LISTEN_ADDRESS=0.0.0.0`
+:   Adresse d'écoute du serveur TE
 
-| Config           | Définition                                                |
-| ---              | ---                                                       |
-| TE_PG_SERVICE=te | Contient le le nom du service pour l'accès à la base "te" |
+`PORT=51968`
+:   Port d'écoute du serveur TE
 
-  * __Interaction avec Dynacase__
+### Accès base de donnée
 
-__Note__ : À partir de la version 0.8.2 la définition du login et du mot de passe ne sont plus obligatoires.
+`TE_PG_SERVICE=te`
+:   Contient le le nom du service pour l'accès à la base "te"
 
-| Config                         | Définition                                                                                                                                                                             |
-| ---                            | ---                                                                                                                                                                                    |
-| URL_CALLBACK_LOGIN=te          | Login dans le cas ou le serveur Dynacase est derrière une authentification HTTP Basic non gérée par dynacase (frontal/reverse proxy HTTP avec authentification HTTP Basic par exemple) |
-| URL_CALLBACK_PASSWORD=password | Le mot de passe associé au login URL_CALLBACK_LOGIN pour l'authentification HTTP Basic                                                                                                 |
+### Lancer les serveurs sous une autre identité que root
 
-  * __Lancer les serveurs sous une autre identité que root__
-
-| Config              | Définition                                                              |
-| ---                 | ---                                                                     |
-| TE_SERVER_USER=root | L'utilisateur sous lequel lancer les serveurs de TE (*root* par défaut) |
+`TE_SERVER_USER=root`
+:   L'utilisateur sous lequel lancer les serveurs de TE (*root* par défaut)
 
 __Note__ : Il est recommandé de ne pas lancer les serveurs de TE sous le compte *root* mais d'utiliser plutôt un compte utilisateur dédié.
 
-  * __Paramétrage serveur OpenOffice.org__
+### Paramétrage serveur OpenOffice {#conf-ooo}
 
-| Config                                                                                                                                                                                                                                                     | Définition                                                                                                                                                   |
-| ---                                                                                                                                                                                                                                                        | ---                                                                                                                                                          |
-| TE_OOO_BASE_DIR=/opt/openoffice.org3                                                                                                                                                                                                                       | Le chemin d'accès au répertoire racine d'installation de OpenOffice.org                                                                                      |
-| TE_OOO_SERVER_PYTHON=${TE_OOO_BASE_DIR}/program/python                                                                                                                                                                                                     | Le chemin d'accès à l'interpréteur Python de OpenOffice.org                                                                                                  |
-| TE_OOO_SERVER_SOFFICE=${TE_OOO_BASE_DIR}/program/soffice                                                                                                                                                                                                   | Le chemin d'accès au programme *soffice* de OpenOffice.org                                                                                                   |
-| TE_OOO_SERVER_UNOPKG=${TE_OOO_BASE_DIR}/program/unopkg                                                                                                                                                                                                     | Le chemin d'accès au programme *unopkg* de OpenOffice.org                                                                                                    |
-| TE_OOO_CLASSPATH="${TE_OOO_BASE_DIR}/basis-link/program/classes/unoil.jar:${TE_OOO_BASE_DIR}/basis-link/ure-link/share/java/juh.jar:${TE_OOO_BASE_DIR}/basis-link/ure-link/share/java/jurt.jar:${TE_OOO_BASE_DIR}/basis-link/ure-link/share/java/ridl.jar" | Le classpath Java pour accéder aux librairies Java d'OpenOffice. Les classes nécessaires sont contenus dans `unoil.jar`, `juh.jar`, `jurt.jar` et `ridl.jar` |
-| TE_OOO_JVM_OPTS=""                                                                                                                                                                                                                                         | Variable pour positionner des paramètres spécifiques pour la JVM si besoin                                                                                   |
-| TE_OOO_SERVER_HOST=127.0.0.1                                                                                                                                                                                                                               | L'adresse IP d'écoute du serveur TE                                                                                                                          |
-| TE_OOO_SERVER_PORT=8123                                                                                                                                                                                                                                    | Le port d'écoute du serveur TE                                                                                                                               |
+`TE_OOO_BASE_DIR=/opt/openoffice4`
+:   Le chemin d'accès au répertoire racine d'installation de OpenOffice
 
-  * __Paramétrage tika-app__
+`TE_OOO_SERVER_PYTHON=${TE_OOO_BASE_DIR}/program/python`
+:   Le chemin d'accès à l'interpréteur Python de OpenOffice
 
-| Config                                                 | Définition                                           |
-| ---                                                    | ---                                                  |
-| TIKA_APP_JAR="${TE_HOME}/lib/engines/tika-app-0.9.jar" | Le chemin d'accès à l'archive `''tika-app-0.9.jar''' |
+`TE_OOO_SERVER_SOFFICE=${TE_OOO_BASE_DIR}/program/soffice`
+:   Le chemin d'accès au programme *soffice* de OpenOffice
+
+`TE_OOO_SERVER_UNOPKG=${TE_OOO_BASE_DIR}/program/unopkg`
+:   Le chemin d'accès au programme *unopkg* de OpenOffice
+
+`TE_OOO_CLASSPATH="${TE_OOO_BASE_DIR}/program/classes/unoil.jar:${TE_OOO_BASE_DIR}/program/classes/juh.jar:${TE_OOO_BASE_DIR}/program/classes/jurt.jar:${TE_OOO_BASE_DIR}/program/classes/ridl.jar"`
+:   Le classpath Java pour accéder aux librairies Java d'OpenOffice. Les classes nécessaires sont contenus dans `unoil.jar`, `juh.jar`, `jurt.jar` et `ridl.jar`
+
+`TE_OOO_JVM_OPTS=""`
+:   Variable pour positionner des paramètres spécifiques pour la JVM si besoin
+
+`TE_OOO_SERVER_HOST=127.0.0.1`
+:   L'adresse IP d'écoute du serveur TE
+
+`TE_OOO_SERVER_PORT=8123`
+:   Le port d'écoute du serveur TE
+
+### Paramétrage tika-app {#conf-tika-app}
+
+`TIKA_APP_JAR="${TE_HOME}/lib/engines/tika-app-1.4.jar"`
+:   Le chemin d'accès à l'archive `tika-app-1.4.jar`
 
 ## Initialisation
 
@@ -156,7 +163,7 @@ L'initialisation crée les tables `engine` et `task` dans la base TE.
 
 TE démarre trois services qui sont :
 
-  * Le serveur OpenOffice.org
+  * Le serveur OpenOffice
   * Le serveur te_request_server
   * Le serveur te_rendering_server
 
@@ -183,36 +190,17 @@ Le script `ted` affiche pour chacun des trois composants s'ils tournent ou non, 
 Le script `ted` permet de lancer une vérification des moteurs de transformations. Pour cela, il faut démarrer les composants (voir `ted start` ci-dessus), et ensuite exécuter la commande suivante :
 
     # $TE_HOME/bin/ted check
-
+    
     * Checking conversion from ODT to PDF...
       Ok: '/tmp/test.odtn27155.pdf' (7957 bytes)
-
+    
     * Checking conversion from ODT to PDF/A-1...
       Ok: '/tmp/test.odtQ27176.pdfa' (14430 bytes)
-
+    
     * Checking conversion from ODT to TXT...
       Ok: '/tmp/test.odtu27199.txt' (22 bytes)
-
-    * Checking conversion from ODT to MS-Word...
-      Ok: '/tmp/test.odtSy4BuE.doc' (9216 bytes)
-
-    * Checking conversion from HTML to ODT...
-      Ok: '/tmp/test.htmlF27220.odt' (9067 bytes)
-
-    * Checking conversion from HTML to PDF...
-      Ok: '/tmp/test.htmlj27253.pdf' (8066 bytes)
-
-    * Checking conversion from HTML to PDF/A-1...
-      Ok: '/tmp/test.htmlW27300.pdfa' (14764 bytes)
-
-    * Checking conversion from HTML to TXT...
-      Ok: '/tmp/test.htmll27348.txt' (39 bytes)
-
-    * Checking conversion from PDF to TXT...
-      Ok: '/tmp/test.pdfq27356.txt' (22 bytes)
-
-    * Checking conversion from TXT to PDF...
-      Ok: '/tmp/test.txtK27363.pdf' (2559 bytes)
+    
+    [etc.]
 
 
 __Note__ : Si le nom d'hôte/nom de domaine du système est mal configuré, les temps de conversion peuvent être long du fait de timeouts de résolution de noms lors de la connexion au serveur OOo.
