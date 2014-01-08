@@ -1,12 +1,10 @@
-*[TE]: Transformation Engine
+# Installation {#te-manex-ref:f25a1271-aab0-4b4a-83b1-ce10fbd462f6}
 
-# Installation
-
-## Installation
+## Installation {#te-manex-ref:99a9bb66-739f-4fa4-88f9-fe236a9a8e7c}
 
 TE est disponible sous forme d'archive à installer sur un serveur dédié (ou non) qui assurera la fonction de serveur de transformation pour Dynacase.
 
-### Télécharger et décompresser l'archive `dynacase-te-current.tar.gz`
+### Télécharger et décompresser l'archive `dynacase-te-current.tar.gz` {#te-manex-ref:f4d41890-4764-4293-a159-e5f7a82f8851}
 
     # wget http://dynacase.anakeen.com/tengine/dynacase-te-current.tar.gz
     # tar zxvf dynacase-te-current.tar.gz
@@ -23,14 +21,14 @@ Par la suite, nous ferons référence à ce répertoire à l'aide de la variable
 
 __Note__ : Si vous avez un compte EEC, il est recommandé de télécharger dynacase-te depuis votre dépôt EEC afin d'avoir les dernières corrections disponibles.
 
-### Création de la base de donnée TE
+### Création de la base de donnée TE {#te-manex-ref:f6506413-f567-4b5f-b964-510570653886}
 
-#### Créer une base `te` sur votre serveur de base de données
+#### Créer une base `te` sur votre serveur de base de données {#te-manex-ref:517d6004-d7b9-4509-9396-e5e7ec5032a1}
 
     # su postgres -c psql
     postgres=# CREATE DATABASE "te" WITH OWNER "dynacaseowner";
 
-#### Créer/ajouter le service postgresql pour l'accès à cette base `te`
+#### Créer/ajouter le service postgresql pour l'accès à cette base `te` {#te-manex-ref:04ea62d6-2ad8-4a84-b32e-6d66fb37bafc}
 
     # vi ${PGSYSCONFDIR}/pg_service.conf
     
@@ -45,12 +43,12 @@ __Note__ : Si vous avez un compte EEC, il est recommandé de télécharger dynac
 
 __Note__ : La valeur de `${PGSYSCONFDIR}` est dépendante de votre distribution, et peut être trouvée avec la commande : `pg_config --sysconfdir`.
 
-#### Valider l'accès à la base de donnée `te`
+#### Valider l'accès à la base de donnée `te` {#te-manex-ref:476099d1-30f0-4eff-a057-539a10bdf009}
 
     # PGSERVICE=te psql
     te=# \q
 
-#### Nombre maximum de connections à la base de donnée
+#### Nombre maximum de connections à la base de donnée {#te-manex-ref:6f5b83ae-cecf-4b15-8b7b-4ace0960885b}
 
 Le service TE comprend deux processus qui tournent en continue (*te_request_server* et *te_request_renderer*). Chacun de ces processus ouvre et maintient une connexion ouverte sur la base de donnée.
 
@@ -60,7 +58,7 @@ Le nombre maximum de connections à la base de données est donc donné par la f
 
     Nombre max de connections Postgresql = 2 + REQUEST_MAX_CLIENT + RENDERING_MAX_CLIENT
 
-### Installation des éléments additionnels
+### Installation des éléments additionnels {#te-manex-ref:45e8dbf4-5110-451d-b6a9-53ed45893548}
 
 #### OpenOffice {#openoffice}
 
@@ -79,7 +77,7 @@ L'archive JAR de `tika-app` doit ensuite être déposée dans le sous-répertoir
 
     # cp tika-app/target/tika-app-1.4.jar $TE_HOME/lib/engines/
 
-## Configuration du serveur TE
+## Configuration du serveur TE {#te-manex-ref:0dc32061-9f16-4941-b1f0-8d66d8f8f8bd}
 
 Les paramètres du serveur TE sont définis dans le fichier `$TE_HOME/etc/te.conf`.
 
@@ -89,7 +87,7 @@ Lors de la première utilisation il vous faudra copier le fichier d'exemple `te.
 
 Les paramètres à ajuster en fonction de votre environnement sont :
 
-### Répertoire temporaire de travail
+### Répertoire temporaire de travail {#te-manex-ref:d244193e-f971-49db-80c8-0bcaf7ea9ded}
 
 `REQUEST_DIRECTORY=/var/tmp`
 :   Répertoire temporaire de travail du serveur request et des scripts engines.
@@ -97,7 +95,7 @@ Les paramètres à ajuster en fonction de votre environnement sont :
 `RENDERING_DIRECTORY=/var/tmp`
 :   Répertoire temporaire de travail du serveur rendering.
 
-### Adresse et port d'écoute TCP
+### Adresse et port d'écoute TCP {#te-manex-ref:ad887351-30fb-4e76-8ee0-c517e107e5b0}
 
 `LISTEN_ADDRESS=0.0.0.0`
 :   Adresse d'écoute du serveur TE
@@ -105,12 +103,12 @@ Les paramètres à ajuster en fonction de votre environnement sont :
 `PORT=51968`
 :   Port d'écoute du serveur TE
 
-### Accès base de donnée
+### Accès base de donnée {#te-manex-ref:75750be0-44e8-43de-ae26-b1086e57d6e2}
 
 `TE_PG_SERVICE=te`
 :   Contient le le nom du service pour l'accès à la base "te"
 
-### Lancer les serveurs sous une autre identité que root
+### Lancer les serveurs sous une autre identité que root {#te-manex-ref:0260dfe8-d1c9-40c8-b2ba-666988ae4c09}
 
 `TE_SERVER_USER=root`
 :   L'utilisateur sous lequel lancer les serveurs de TE (*root* par défaut)
@@ -148,7 +146,7 @@ __Note__ : Il est recommandé de ne pas lancer les serveurs de TE sous le compte
 `TIKA_APP_JAR="${TE_HOME}/lib/engines/tika-app-1.4.jar"`
 :   Le chemin d'accès à l'archive `tika-app-1.4.jar`
 
-## Initialisation
+## Initialisation {#te-manex-ref:063a343a-7265-46ef-b63a-a80335750f79}
 
 Une fois les éléments installés, il vous faut initialiser la base de données TE.
 
@@ -157,9 +155,9 @@ Une fois les éléments installés, il vous faut initialiser la base de données
 
 L'initialisation crée les tables `engine` et `task` dans la base TE.
 
-## Démarrage/arrêt/status de TE
+## Démarrage/arrêt/status de TE {#te-manex-ref:218e260b-7cfa-4d53-a6c1-cb4c50f36f84}
 
-### Démarrage des éléments de TE (`ted start`)
+### Démarrage des éléments de TE (`ted start`) {#te-manex-ref:560d0dfe-8b7e-4bba-8262-c847f38c1ef4}
 
 TE démarre trois services qui sont :
 
@@ -176,7 +174,7 @@ TE démarre trois services qui sont :
 
 Le script ted s'occupe de lancer les trois composants, et affiche leur PID.
 
-### Status des éléments de TE (`ted status`)
+### Status des éléments de TE (`ted status`) {#te-manex-ref:8e25828d-711c-4162-ad5e-7b0fcc78ca4b}
 
     # $TE_HOME/bin/ted status
     Request server running (27041)
@@ -185,7 +183,7 @@ Le script ted s'occupe de lancer les trois composants, et affiche leur PID.
 
 Le script `ted` affiche pour chacun des trois composants s'ils tournent ou non, et leur PID.
 
-### Vérification des moteurs de transformation (`ted check`)
+### Vérification des moteurs de transformation (`ted check`) {#te-manex-ref:02b9cb27-aca7-4232-8ba5-0455fa43709d}
 
 Le script `ted` permet de lancer une vérification des moteurs de transformations. Pour cela, il faut démarrer les composants (voir `ted start` ci-dessus), et ensuite exécuter la commande suivante :
 
@@ -206,7 +204,7 @@ Le script `ted` permet de lancer une vérification des moteurs de transformation
 __Note__ : Si le nom d'hôte/nom de domaine du système est mal configuré, les temps de conversion peuvent être long du fait de timeouts de résolution de noms lors de la connexion au serveur OOo.
 Pour corriger cela, assurez vous que le nom d'hôte (tel que retourné par la commande `hostname`) et le nom de domaine (tel que retourné par la commande `dnsdomainname`) sont corrects, et que le fichier `/etc/hosts` est correctement renseigné.
 
-### Arrêts des éléments de TE (`ted stop`)
+### Arrêts des éléments de TE (`ted stop`) {#te-manex-ref:fe36c94a-5fbc-4cc0-8fca-ea3d7e4886a5}
 
     # $TE_HOME/bin/ted stop
     Stopping te_request_server... 27041
@@ -228,11 +226,11 @@ Exemple pour supprimer les fichiers temporaires de plus de 15 jours :
 
 Pour effectuer le nettoyage régulièrement, vous pouvez exécuter cette commande à partir d'une crontab.
 
-## Démarrage/arrêt automatique de TE avec le système
+## Démarrage/arrêt automatique de TE avec le système {#te-manex-ref:c0a71f5b-d7e6-466d-b109-3e78ab407ebc}
 
 Pour que TE démarre, et s'arrête, lors du démarrage, et l'arrêt, du système, il faut enregistrer le script `ted` dans le système rc/init de votre système.
 
-### Enregistrement de ted sur distribution de type RedHat
+### Enregistrement de ted sur distribution de type RedHat {#te-manex-ref:0489268c-97cc-4d0d-a6a9-519bf739e9f1}
 
 Les distribution de type RedHat utilisent la commande `chkconfig` pour administrer les scripts rc/init.
 
@@ -247,7 +245,7 @@ Enregistrer `ted` :
     # chkconfig --list ted
     ted             0:arrêt 1:arrêt 2:marche        3:marche        4:marche        5:marche        6:arrêt
 
-### Enregistrement de ted sur distribution de type Debian
+### Enregistrement de ted sur distribution de type Debian {#te-manex-ref:7cfbb5f8-2f04-4ac9-8f96-5c5e741b5f07}
 
 Les distributions de type Debian utilisent la commande `update-rc.d` pour administrer les scripts rc/init.
 

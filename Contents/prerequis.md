@@ -1,6 +1,4 @@
-*[TE]: Transformation Engine
-
-# Pré-requis
+# Pré-requis {#te-manex-ref:657e8fad-93ff-4705-a32f-e9d038721082}
 
 PHP >= 5.3 (cli) et extension pgsql
 :   TE est écrit en PHP et nécessite donc l'interpréteur [PHP](http://www.php.net/) (php-cli) et l'extension pgsql.

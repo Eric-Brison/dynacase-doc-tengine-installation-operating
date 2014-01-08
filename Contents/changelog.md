@@ -1,8 +1,7 @@
-*[TE]: Transformation Engine
 
-# ChangeLog
+# ChangeLog {#te-manex-ref:da01abb1-163e-434f-b56c-eb918c479cb9}
 
-## Version 1.3.4
+## Version 1.3.4 {#te-manex-ref:52732a48-1494-4be4-819f-0e95e7254e88}
 
 La version `1.3.4` de TE introduit l'utilisation de Apache Tika en version
 `1.4` et d'OpenOffice `4.0`.

@@ -1,6 +1,6 @@
-# Configuration Dynacase
+# Configuration Dynacase {#te-manex-ref:33a5475b-28e7-4b95-b0ea-a127e4794e93}
 
-## Configuration de Dynacase pour utiliser TE
+## Configuration de Dynacase pour utiliser TE {#te-manex-ref:476b37eb-727c-406b-9214-98c435470549}
 
 Pour que Dynacase puisse utiliser TE pour la transformation, et l'indexation plein-texte de documents, il faut positionner les paramètres applicatifs suivants :
 

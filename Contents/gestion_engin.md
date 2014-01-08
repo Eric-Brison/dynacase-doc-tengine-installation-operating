@@ -1,15 +1,13 @@
-*[TE]: Dynacase Transformation Engine
+# Gestion des engins {#te-manex-ref:89f916ab-453d-4cde-be2a-c711b0c5e12e}
 
-# Gestion des engins
-
-## Création d'un engin
+## Création d'un engin {#te-manex-ref:e55dbdf7-c386-4565-894b-8a521f79f2f5}
 
 Un engin TE est un script qui prend en entrée deux valeurs :
 
 * 1er argument : le path du fichier à transformer,
 * 2ème argument : le path où déposer le fichier un fois transformé
 
-## Ajout/Suppression d'un engin
+## Ajout/Suppression d'un engin {#te-manex-ref:063945f8-9576-4e7a-94be-a18b7d80e48b}
 
 Une fois le script conçu, il doit être déposé dans le répertoire `lib/engines/` du TE, être exécutable, et être inscrit en base de la manière suivante :
 
