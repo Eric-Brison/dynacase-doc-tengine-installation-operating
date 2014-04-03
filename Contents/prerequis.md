@@ -1,7 +1,15 @@
 # Pré-requis {#te-manex-ref:657e8fad-93ff-4705-a32f-e9d038721082}
 
-PHP >= 5.3 (cli) et extension pgsql
-:   TE est écrit en PHP et nécessite donc l'interpréteur [PHP](http://www.php.net/) (php-cli) et l'extension pgsql.
+PHP >= 5.3 (cli)
+:   TE est écrit en PHP et nécessite donc l'interpréteur [PHP](http://www.php.net/) (php-cli) avec les extensions suivantes :
+    
+        SimpleXML
+        gettext
+        json
+        pcntl
+        pgsql
+        posix
+        xml
 
 Java Runtime Environment 6 (ou 7)
 :   TE nécessite un environnement Java 6 (ou 7) pour utiliser l'API Java d'OpenOffice en mode serveur. Il est mis à disposition soit par [OpenJDK](http://openjdk.java.net/install/) ou par [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
@@ -17,9 +25,6 @@ Xvfb
 
 xauth
 :   TE nécessite la commande `xauth` de X11/Xorg.
-
-SimpleXML
-:   TE nécessite [SimpleXML](http://www.php.net/manual/book.simplexml.php).
 
 a2ps et ps2pdf14
 :   TE utilise les outils `a2ps` et `ps2pdf14` pour les conversions texte vers PDF. Ils sont fournis par [a2ps](http://www.gnu.org/software/a2ps/) et [Ghostscript](http://pages.cs.wisc.edu/~ghost/).
