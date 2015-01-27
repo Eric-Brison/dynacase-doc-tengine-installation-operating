@@ -87,11 +87,11 @@ le script `ted` au système d'init de votre serveur.
 
 Vous trouverez ci-dessous, un exemple pour les distributions de type RedHat et Debian.
 
-Distribution de type Debian
+Distribution de type RedHat
 :   
 
-
-Les distribution de type RedHat utilisent la commande `chkconfig` pour administrer les scripts rc/init.
+Les distributions de type RedHat utilisent la commande `chkconfig` pour
+administrer les scripts rc/init.
 
 Faire un lien symbolique de `$TE_HOME/bin/ted` dans le répertoire `/etc/rc.d/init.d/` :
 

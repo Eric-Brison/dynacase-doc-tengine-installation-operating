@@ -1,15 +1,17 @@
 # Installation des WebUi (client) {#te-manex-ref:4fc3d410-30da-461e-b96e-d99f894d3409}
 
-Ces interfaces permettant de connecter Dynacase Platform au serveur TE et de monitorer ses principales
-fonctions.  
+Ces interfaces permettent de connecter Dynacase Platform au serveur TE et de
+monitorer ses principales fonctions.  
+
 Elles sont disponibles dans le Centre d'Administration de Dynacase Platform.
 
-Elles sont distribuées par les modules *Dynacase TEngine Client* et *Dynacase TEngine Monitor*[^1]
-[installables via Dynacase Control](http://docs.anakeen.com/dynacase/4/dynacase-doc-platform-operating-manual/website/book/manex-ref:62f81ecf-eaed-46f0-8099-75a5ca7a1775.html#manex-ref:7390e1ee-cd3d-44f0-8582-2144cbeab6cf).
-
+Elles sont distribuées par les modules *Dynacase TEngine Configuration* ou
+*Dynacase TEngine Monitor*[^1] [installables via Dynacase
+Control][dynacase_control].
 
 _Le fonctionnement du serveur TE est indépendant de l'installation des interfaces Web clientes._
 
-
-
 [^1]: Ce module n'est disponible que sous licence Anakeen.
+
+<!-- links -->
+[dynacase_control]: http://docs.anakeen.com/dynacase/3.2/dynacase-doc-platform-operating-manual/website/book/manex-ref:62f81ecf-eaed-46f0-8099-75a5ca7a1775.html#manex-ref:7390e1ee-cd3d-44f0-8582-2144cbeab6cf

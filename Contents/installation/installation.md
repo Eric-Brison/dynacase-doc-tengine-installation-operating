@@ -30,14 +30,22 @@ L'initialisation crée les tables `engine` et `task` dans la base TE.
 
 ## Montée en version et mise à jour {#te-manex-ref:a5e82934-975f-48de-8edc-6d2b7a35639a}
 
-<span class="flag inline fixme">À compléter...</span>
+La mise à jour de TE consiste à :
+
+* déployer le contenu de l'archive de la nouvelle version sur l'installation de
+  l'ancienne version ;
+
+* suivre ensuite les éventuelles procédures de migration fournies dans les
+  [notes de version][release_notes] ;
+
+* pour finir, [redémarrer le daemon TE][ted_start_stop].
 
 ## Installation des éléments additionnels {#te-manex-ref:45e8dbf4-5110-451d-b6a9-53ed45893548}
 
 Ces composants sont utilisés par les moteurs de transformation livrés en standard.
 
 <span class="flag inline nota-bene"></span> Les versions à utiliser dépendent de la version du serveur TE. Elles sont identifiées
-dans [les notes de version](#te-manex-ref:da01abb1-163e-434f-b56c-eb918c479cb9).
+dans [les notes de version][release_note].
 
 ### OpenOffice {#openoffice}
 
@@ -45,7 +53,10 @@ Installer OpenOffice à partir des paquets officiels [OpenOffice](http://www.ope
 
 ### tika-app {#tika-app}
 
-L'archive `tika-app-<version>.jar` peut être obtenue en compilant les sources de [Apache Tika](http://tika.apache.org/download.html), ou bien sous forme pré-compilée sur notre dépôt *third-party* : [Tika](http://ftp.dynacase.org/third-party/tika-app-<version>.jar)
+L'archive `tika-app-<version>.jar` peut être obtenue en compilant les sources
+de [Apache Tika](http://tika.apache.org/download.html), ou bien sous forme
+précompilée sur notre dépôt *third-party* :
+[Tika](http://ftp.dynacase.org/third-party/tika-app-<version>.jar)
 
 La compilation de `tika-<version>-src.zip` avec maven (`mvn`) peut nécessiter l'augmentation des limites mémoire de la JVM :
 
@@ -58,3 +69,6 @@ L'archive JAR de `tika-app` doit ensuite être déposée dans le sous-répertoir
     [bash]
     # cp tika-app/target/tika-app-<version>.jar $TE_HOME/lib/engines/
 
+<!-- links -->
+[release_notes]: #te-manex-ref:da01abb1-163e-434f-b56c-eb918c479cb9
+[ted_start_stop]: #te-manex-ref:560d0dfe-8b7e-4bba-8262-c847f38c1ef4

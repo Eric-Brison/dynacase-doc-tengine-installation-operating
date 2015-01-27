@@ -35,7 +35,7 @@ Serveur de communication
 
 * `PORT` : port d'écoute sur serveur
 * `LISTEN_ADDRESS` : plage d'adresse (mask) d'écoute du serveur
-* `REQUEST_MAX_CLIENT` : nombre maximun de connexions client simultanées
+* `REQUEST_MAX_CLIENT` : nombre maximum de connexions client simultanées
 * `REQUEST_DIRECTORY` : répertoire de stockage des fichiers reçus
 
 Mécanisme de purge 
@@ -108,4 +108,36 @@ Serveur Tika
 * `TIKA_APP_JAR` fournit le chemin d'accès au fichier JAR Tika
 
 
-# Type mimes  {#te-manex-ref:3e1d421e-9cb9-48f5-8c86-dd873a970eec}
+## Type mimes  {#te-manex-ref:3e1d421e-9cb9-48f5-8c86-dd873a970eec}
+
+La détection du type MIME textuel et du type MIME système des fichiers par TE
+est paramétrable via des règles appliqués sur l'extension du nom du fichier.
+
+Ces règles sont décrites au format XML dans le fichier
+`$TE_HOME/etc/user-mime.conf`.
+
+Un fichier d'exemple est fournit par défaut dans
+`$TE_HOME/etc/user-mime.conf.sample`.
+
+Exemple de définition des types MIME textuel et système pour les fichiers
+d'extension `.foo` et `.bar` :
+
+    [xml]
+    <?xml version="1.0" encoding="utf-8"?>
+    <mimes>
+        <mime ext="foo" sys="application/foo" text="Foo file" />
+        <mime ext="bar" sys="application/bar" text="Bar file" />
+    </mimes>
+
+Chaque règle est décrite à l'aide d'un élément `<mime/>` comportant l'extension
+(sans le point de l'extension) sur laquelle elle s'applique (attribut `ext`) et
+le type MIME textuel et système correspond qui est retourné (attribut `text` et
+`sys`).
+
+Les règles sont évalués dans l'ordre et s'arrête à la première règle qui
+correspond à l'extension du fichier.
+
+Ces règles `$TE_HOME/etc/user-mime.conf` viennent en complément et sont évalués
+en priorité par rapport au jeu de règles fournit par défaut par TE (consultable
+dans le fichier `$TE_HOME/etc/mime.conf`).
+

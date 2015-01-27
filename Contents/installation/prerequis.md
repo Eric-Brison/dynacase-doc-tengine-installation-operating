@@ -24,7 +24,10 @@ OpenOffice 4.0
 :   TE nécessite [Apache OpenOffice](http://www.openoffice.org). La version actuellement disponible et préconisée est la `4.0.1`.
 
 tika-app-1.4.jar
-:   TE nécessite l'outils tika-app du projet [Apache Tika](http://tika.apache.org/) pour l'extraction de texte (voir [tika-app](#tika-app)). La version actuellement disponible et préconisée est la `1.4`.
+:   TE nécessite l'outil tika-app du projet
+    [Apache Tika](http://tika.apache.org/) pour l'extraction de texte (voir
+    [tika-app](#tika-app)). La version actuellement disponible et préconisée
+    est la `1.4`.
 
 Xvfb
 :   TE nécessite le serveur [X virtual-frame-buffer](http://www.x.org/) (Xvfb) pour exécuter OpenOffice.
