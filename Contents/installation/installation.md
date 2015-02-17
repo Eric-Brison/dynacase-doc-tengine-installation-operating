@@ -51,23 +51,18 @@ dans [les notes de version][release_note].
 
 Installer OpenOffice à partir des paquets officiels [OpenOffice](http://www.openoffice.org/).
 
-### tika-app {#tika-app}
+### tika-server {#tika-server}
 
-L'archive `tika-app-<version>.jar` peut être obtenue en compilant les sources
-de [Apache Tika](http://tika.apache.org/download.html), ou bien sous forme
-précompilée sur notre dépôt *third-party* :
-[Tika](http://ftp.dynacase.org/third-party/tika-app-<version>.jar)
+L'archive `tika-server-<version>.jar` peut être obtenue en téléchargement sur
+le site officiel de [Apache Tika](http://tika.apache.org/download.html), ou
+bien sur notre dépôt *third-party* :
+[tika-server-1.7.jar](http://ftp.dynacase.org/third-party/tika-server-1.7.jar)
 
-La compilation de `tika-<version>-src.zip` avec maven (`mvn`) peut nécessiter l'augmentation des limites mémoire de la JVM :
-
-    [bash]
-    $ cd tika-<version>
-    $ MAVEN_OPTS=-Xmx2048m mvn -e clean install
-
-L'archive JAR de `tika-app` doit ensuite être déposée dans le sous-répertoire `$TE_HOME/lib/engines` :
+L'archive JAR de `tika-server` doit ensuite être déposée dans le
+sous-répertoire `$TE_HOME/lib/engines` :
 
     [bash]
-    # cp tika-app/target/tika-app-<version>.jar $TE_HOME/lib/engines/
+    # cp /tmp/tika-server-<version>.jar $TE_HOME/lib/engines/
 
 <!-- links -->
 [release_notes]: #te-manex-ref:da01abb1-163e-434f-b56c-eb918c479cb9

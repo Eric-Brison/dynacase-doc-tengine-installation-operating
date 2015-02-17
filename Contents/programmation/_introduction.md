@@ -96,8 +96,7 @@ La communication entre Dynacase et le Request server permet au client de :
       status `P`.
     * Si la conversion est réussie, la tâche passe à l'état `D` (Done) et
       Dynacase est notifié via l'URL de callback.
-    * Lorsque Dynacase a récupéré le résultat, alors la tâche passe dans l'état
-      `S` (Sent).
+    * Lorsque Dynacase a récupéré le résultat, alors la tâche est supprimée.
     * Si la tâche est en erreur, son statut est positionné à `K` (Knockout).
     * Si la tâche est interrompue, son statut est positionné à `I` (Interrupted).
 
