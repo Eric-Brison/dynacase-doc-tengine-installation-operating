@@ -1,0 +1,35 @@
+digraph D {
+	node [fontname="Liberation Sans"];
+
+	"CONVERT" [label="Request server",style=filled,color=transparent,fillcolor=transparent];
+	"B" [label="[B] Demande de conversion\nreçue"];
+	"T" [label="[T] Lecture/transfert\ndu fichier à convertir"];
+	"W" [label="[W] Attente de traitement\npar le moteur"];
+	"P" [label="[P] En cours de traitement"];
+	"K" [label="[K] Erreur"];
+	"D" [label="[D] Conversion\nréussie"];
+	"S" [label="[S] Résultat récupéré\npar le client"];
+	"I" [label="[I] Interrompue"];
+
+	{
+		edge [color=blue];
+		"CONVERT" -> "B" -> "T" -> "W";
+
+		edge [color=green];
+		"W" -> "P" -> "D" -> "S";
+
+		edge [color=red];
+		"B" -> "K";
+		"T" -> "K";
+		"W" -> "K";
+		"P" -> "K";
+
+		edge [color=black];
+		"B" -> "I";
+		"T" -> "I";
+		"W" -> "I";
+		"P" -> "I";
+		"D" -> "I";
+	}
+
+}
