@@ -21,7 +21,7 @@ Base de données
     # - - - - - - - - - - - - - - - - - -
     TE_PG_SERVICE="te"                # Postgresql database service name
 
-* `TE_PG_SERVICE` permet d'indiquer le [service d'accès à la base de données](#te-manex-ref:f6506413-f567-4b5f-b964-510570653886) *TE*
+* `TE_PG_SERVICE` : permet d'indiquer le [service d'accès à la base de données](#te-manex-ref:f6506413-f567-4b5f-b964-510570653886) *TE*
 
 Serveur de communication 
 :  
@@ -67,8 +67,13 @@ Identité pour les serveurs
     [bash]
     # -- Run TE servers as a user --
     TE_SERVER_USER=root
+    TE_SERVER_DEBUG=no
 
 * `TE_SERVER_USER` : permet de spécifier l'identité (unix user) sous laquelle les serveurs sont exécutés.
+* `TE_SERVER_DEBUG` : permet de rediriger (`yes` ou `no`) la sortie standard
+  (STDOUT) et d'erreur (STDERR) des serveurs te_request_server,
+  te_rendering_server, OpenOffice et Tika dans syslog (pour analyser les
+  éventuels problèmes de démarrage de ces services).
 
 Serveur OpenOffice.org 
 :   
@@ -77,9 +82,7 @@ Serveur OpenOffice.org
     # -- Server-mode OpenOffice.org parameters
     TE_OOO_SERVER_ENABLED=yes
     TE_OOO_BASE_DIR=/replace/me/with/path/to/openoffice.org/directory
-    TE_OOO_SERVER_PYTHON=${TE_OOO_BASE_DIR}/program/python
     TE_OOO_SERVER_SOFFICE=${TE_OOO_BASE_DIR}/program/soffice
-    TE_OOO_SERVER_UNOPKG=${TE_OOO_BASE_DIR}/program/unopkg
     TE_OOO_CLASSPATH="${TE_OOO_BASE_DIR}/program/classes/unoil.jar:${TE_OOO_BASE_DIR}/program/classes/juh.jar:${TE_OOO_BASE_DIR}/program/classes/jurt.jar:${TE_OOO_BASE_DIR}/program/classes/ridl.jar"
     TE_OOO_JVM_OPTS=""
     TE_OOO_SERVER_HOST=127.0.0.1
@@ -88,25 +91,61 @@ Serveur OpenOffice.org
 Les chemin d'accès aux fichiers OpenOffice.org sont relatifs.  
 Normalement vous ne devez que vous assurer que `TE_OOO_BASE_DIR` est correctement valué.  
 
-* `TE_OOO_BASE_DIR` : chemin d'accès au répertoire racine d'installation de OpenOffice
-* `TE_OOO_SERVER_PYTHON` : chemin d'accès à l'interpréteur Python de OpenOffice
-* `TE_OOO_SERVER_SOFFICE` : chemin d'accès au programme *soffice* de OpenOffice
-* `TE_OOO_SERVER_UNOPKG` : chemin d'accès au programme *unopkg* de OpenOffice
-* `TE_OOO_CLASSPATH` :  _classpath_ Java pour accéder aux librairies Java d'OpenOffice. Les classes nécessaires sont contenus dans `unoil.jar`, `juh.jar`, `jurt.jar` et `ridl.jar`
-* `TE_OOO_JVM_OPTS` : variable pour positionner des paramètres spécifiques pour la JVM si besoin
-* `TE_OOO_SERVER_HOST` : adresse IP d'écoute du serveur TE
-* `TE_OOO_SERVER_PORT` : port d'écoute du serveur TE
+* `TE_OOO_SERVER_ENABLED` : permet d'activer (`yes`) ou désactiver (`no`) le
+  lancement du serveur OpenOffice. Attention : cela ne désactive pas
+  l'exécution des moteurs de conversion qui utilisent OpenOffice. Ces derniers
+  seront alors mis en erreur.
 
+* `TE_OOO_BASE_DIR` : chemin d'accès au répertoire racine d'installation de
+  OpenOffice.
+
+* `TE_OOO_SERVER_SOFFICE` : chemin d'accès au programme *soffice* de
+  OpenOffice.
+
+* `TE_OOO_CLASSPATH` :  _classpath_ Java pour accéder aux librairies Java
+  d'OpenOffice. Les classes nécessaires sont contenus dans `unoil.jar`,
+  `juh.jar`, `jurt.jar` et `ridl.jar`.
+  
+  La valeur de `TE_OOO_CLASSPATH` est différente suivant que vous utilisez
+  OpenOffice ou LibreOffice :
+  
+  * Exemple de valeur pour OpenOffice :
+    
+        [bash]
+        TE_OOO_CLASSPATH="${TE_OOO_BASE_DIR}/program/classes/unoil.jar:${TE_OOO_BASE_DIR}/program/classes/juh.jar:${TE_OOO_BASE_DIR}/program/classes/jurt.jar:${TE_OOO_BASE_DIR}/program/classes/ridl.jar"
+  
+  * Exemple de valeur pour LibreOffice :
+    
+        [bash]
+        TE_OOO_CLASSPATH="${TE_OOO_BASE_DIR}/program/classes/unoil.jar:${TE_OOO_BASE_DIR}/ure/share/java/juh.jar:${TE_OOO_BASE_DIR}/ure/share/java/jurt.jar:${TE_OOO_BASE_DIR}/ure/share/java/ridl.jar"
+
+* `TE_OOO_JVM_OPTS` : variable pour positionner des paramètres spécifiques pour
+  la JVM si besoin.
+
+* `TE_OOO_SERVER_HOST` : adresse IP d'écoute du serveur OpenOffice.
+
+* `TE_OOO_SERVER_PORT` : port TCP d'écoute du serveur OpenOffice.
 
 Serveur Tika
 :   
 
     [bash]
-    # -- Tika-app Jar file
-    TIKA_APP_JAR="/replace/me/with/path/to/tika-app-#version#.jar"
+    # -- Tika-server Jar file
+    TE_TIKA_SERVER_ENABLED=yes
+    TE_TIKA_SERVER_JAR="/replace/me/with/path/to/tika-server-#version#.jar"
+    TE_TIKA_SERVER_HOST=127.0.0.1
+    TE_TIKA_SERVER_PORT=9998
+    TE_TIKA_SERVER_LOGLEVEL="" # 'debug' or 'info'
 
-* `TIKA_APP_JAR` fournit le chemin d'accès au fichier JAR Tika
-
+* `TE_TIKA_SERVER_ENABLED` : permet d'activer (`yes`) ou désactiver (`no`) le
+  lancement du serveur Tika. Attention : cela ne désactive pas l'exécution des
+  moteurs de conversion qui utilisent Tika. Ces derniers seront alors mis en
+  erreur.
+* `TE_TIKA_SERVER_JAR` : chemin d'accès au fichier JAR de Tika Server.
+* `TE_TIKA_SERVER_HOST` : adresse IP d'écoute du serveur Tika.
+* `TE_TIKA_SERVER_PORT` : port TCP d'écoute du serveur Tika.
+* `TE_TIKA_SERVER_LOGLEVEL` : loglevel spécifique du serveur Tika (à utiliser
+  conjointement avec `TE_SERVER_DEBUG=yes` décrit ci-dessus).
 
 ## Type mimes  {#te-manex-ref:3e1d421e-9cb9-48f5-8c86-dd873a970eec}
 

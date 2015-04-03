@@ -6,45 +6,51 @@
 Démarrage `ted start`
 :  
 
-Le script démarre les serveurs OpenOffice, TE (communication et transformation).
+Le script démarre les serveurs OpenOffice, Tika et TE (communication et
+transformation).
 
     [bash]
     # $TE_HOME/bin/ted start
-    Starting OOO server... 27023
-    Starting te_request_server... 27041
-    Starting te_rendering_server... 27043
-    Starting ted service:  OK
+    Starting OOO server... 9164
+    Starting Tika server... 9203
+    Starting te_request_server... 9235
+    Starting te_rendering_server... 9265
+     * Starting ted service:  OK
 
-Le script ted s'occupe de lancer les trois composants, et affiche leur PID.
+Le script ted s'occupe de lancer les quatre composants, et affiche leur PID.
 Les erreurs d'activation sont signalées sur la console de lancement.
 
-
-Démarrage `ted stop`
+Arrêt `ted stop`
 :  
 
-Le script démarre les serveurs.
+Le script arrête les serveurs TE (communication et transformation), Tika et
+OpenOffice.
 
     [bash]
     # $TE_HOME/bin/ted stop
-    Stopping te_request_server... 27041
-    Stopping te_rendrering_server... 27043
-    Stopping OOO server... 27023
+    Stopping te_request_server... 9235
+    Stopping te_rendering_server... 9265
+    Stopping Tika server... 9203
+    Stopping OOO server... 9164
      * Stopping ted service:  OK
 
-
-## Status des éléments de TE (`ted status`) {#te-manex-ref:8e25828d-711c-4162-ad5e-7b0fcc78ca4b}
+## Statut des éléments de TE (`ted status`) {#te-manex-ref:8e25828d-711c-4162-ad5e-7b0fcc78ca4b}
 
     [bash]
     # $TE_HOME/bin/ted status
-    Request server running (27041)
-    Rendering server running (27043)
-    OOO server running (27023)
+    Request server running (9449)
+    Rendering server running (9471)
+    Tika server running (9408)
+    OOO server running (9369)
 
-Le script `ted` affiche pour chacun des trois composants s'ils tournent ou non, et leur PID.
+Le script `ted` affiche pour chacun des quatre composants s'ils tournent ou
+non, et leur PID.
 
 ## Vérification des moteurs de transformation (`ted check`) {#te-manex-ref:02b9cb27-aca7-4232-8ba5-0455fa43709d}
 
-Le script `ted` permet de lancer une vérification des moteurs de transformations. Pour cela, il faut démarrer les composants (voir `ted start` ci-dessus), et ensuite exécuter la commande suivante :
+Le script `ted` permet de lancer une vérification des moteurs de
+transformations. Pour cela, il faut démarrer les composants (voir `ted start`
+ci-dessus), et ensuite exécuter la commande suivante :
 
     [bash]
     # $TE_HOME/bin/ted check
@@ -128,3 +134,4 @@ Enregistrer `ted` :
      /etc/rc3.d/S20ted -> ../init.d/ted
      /etc/rc4.d/S20ted -> ../init.d/ted
      /etc/rc5.d/S20ted -> ../init.d/ted
+

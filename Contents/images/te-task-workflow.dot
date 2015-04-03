@@ -8,7 +8,6 @@ digraph D {
 	"P" [label="[P] En cours de traitement"];
 	"K" [label="[K] Erreur"];
 	"D" [label="[D] Conversion\nréussie"];
-	"S" [label="[S] Résultat récupéré\npar le client"];
 	"I" [label="[I] Interrompue"];
 
 	{
@@ -16,7 +15,7 @@ digraph D {
 		"CONVERT" -> "B" -> "T" -> "W";
 
 		edge [color=green];
-		"W" -> "P" -> "D" -> "S";
+		"W" -> "P" -> "D";
 
 		edge [color=red];
 		"B" -> "K";
@@ -30,6 +29,8 @@ digraph D {
 		"W" -> "I";
 		"P" -> "I";
 		"D" -> "I";
+	
 	}
 
+	{ rank=same; "K" "D" "I" }
 }
