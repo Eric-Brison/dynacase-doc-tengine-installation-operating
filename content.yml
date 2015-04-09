@@ -2,7 +2,7 @@ book:
     title: "Installation et exploitation"
     module: "Tranformation Engine"
     version: "1.4"
-    edition: "4"
+    edition: "1"
     githubsrc: "https://github.com/Anakeen/dynacase-doc-tengine-installation-operating"
     chapters:
 #
@@ -42,6 +42,12 @@ book:
       - level:   1
         content: programmation/_introduction.md
         subtoc:  2
+      - level:   2
+        content: programmation/principe.md
+      - level:   2
+        content: programmation/createengine.md
+      - level:   2
+        content: programmation/createclient.md
         flags:
            new : "1.4"
       - level:   2

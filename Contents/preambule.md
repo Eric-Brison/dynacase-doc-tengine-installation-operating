@@ -9,11 +9,12 @@ Il a pour rôle d'exécuter sur demande de Dynacase Platform ou de ses
 applications des travaux de transformation. Il pilote pour cela des moteurs de
 transformation ou *Engine*.
 
-Chaque moteur traite un ou plusieurs fichiers, de formats donnés, en entrée et produit en sortie
-un ou plusieurs fichiers. Le traitement réalisé et les formats de fichiers font la
-spécificité du moteur.
+Chaque moteur traite un fichier en entrée dans formats donnés, et produit en
+sortie un fichier résultat. Le traitement réalisé et les formats de fichiers
+font la spécificité du moteur.
 
-Lors de l'installation du serveur *TE*, un ensemble de [moteurs est livré en standard][std_engines].
+Lors de l'installation du serveur *TE*, un ensemble de [moteurs est livré en
+standard][std_engines].
 
 Le développeur peut [ajouter ses propres moteurs][add_engines].
 

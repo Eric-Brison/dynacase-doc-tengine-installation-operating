@@ -17,7 +17,7 @@ transformation).
     Starting te_rendering_server... 9265
      * Starting ted service:  OK
 
-Le script ted s'occupe de lancer les quatre composants, et affiche leur PID.
+Le script `ted`  lance les quatre composants, et affiche leur PID.
 Les erreurs d'activation sont signalées sur la console de lancement.
 
 Arrêt `ted stop`
@@ -43,14 +43,14 @@ OpenOffice.
     Tika server running (9408)
     OOO server running (9369)
 
-Le script `ted` affiche pour chacun des quatre composants s'ils tournent ou
-non, et leur PID.
+Le script `ted` affiche pour chacun des quatre composants s'ils sont en fonction
+ou non, et leur PID (Process Identifier).
 
 ## Vérification des moteurs de transformation (`ted check`) {#te-manex-ref:02b9cb27-aca7-4232-8ba5-0455fa43709d}
 
 Le script `ted` permet de lancer une vérification des moteurs de
-transformations. Pour cela, il faut démarrer les composants (voir `ted start`
-ci-dessus), et ensuite exécuter la commande suivante :
+transformations. Pour cela, il faut démarrer le serveur (voir [`ted
+start`][tedstart]), et ensuite exécuter la commande suivante :
 
     [bash]
     # $TE_HOME/bin/ted check
@@ -67,36 +67,45 @@ ci-dessus), et ensuite exécuter la commande suivante :
     [etc.]
 
 
-<span class="flag inline nota-bene"></span> Si le nom d'hôte/nom de domaine du système est mal configuré, les temps de conversion peuvent être long du fait de timeouts de résolution de noms lors de la connexion au serveur OOo.
-Pour corriger cela, assurez vous que le nom d'hôte (tel que retourné par la commande `hostname`) et le nom de domaine (tel que retourné par la commande `dnsdomainname`) sont corrects, et que le fichier `/etc/hosts` est correctement renseigné.
+<span class="flag inline nota-bene"></span> Si le nom d'hôte/nom de domaine du
+système est mal configuré, les temps de conversion peuvent être long du fait de
+timeouts de résolution de noms lors de la connexion au serveur OOo. Pour
+corriger cela, le nom d'hôte (tel que retourné par la commande
+`hostname`) et le nom de domaine (tel que retourné par la commande
+`dnsdomainname`) doivent être corrects, et que le fichier `/etc/hosts` est correctement
+renseigné.
 
 ## Nettoyage des fichiers temporaires (`ted cleantmpfiles`) {#cleantmpfiles}
 
-L'option `cleantmpfiles` permet de supprimer les fichiers temporaires nommés `tes-*` et `ter-*`, présents dans les répertoire `$REQUEST_DIRECTORY` et `$RENDERING_DIRECTORY` qui ont plus de 7 jours (valeur par défaut).
+L'option `cleantmpfiles` permet de supprimer les fichiers temporaires nommés
+`tes-*` et `ter-*`, présents dans les répertoire `$REQUEST_DIRECTORY` et
+`$RENDERING_DIRECTORY` qui ont plus de 7 jours (valeur par défaut).
 
     [bash]
     # $TE_HOME/bin/ted cleantmpfiles
 
-Si vous voulez spécifier votre propre durée, vous pouvez ajouter le nombre de jours après l'option `cleantmpfiles`.
+Le paramètre de la fonction permet de spécifier une autre durée (exprimée en
+jours).
 
 Exemple pour supprimer les fichiers temporaires de plus de 15 jours :
 
     [bash]
     # $TE_HOME/bin/ted cleantmpfiles 15
 
-<span class="flag inline nota-bene"></span> Pour effectuer le nettoyage régulièrement, vous pouvez exécuter cette commande à partir d'une crontab.
+<span class="flag inline nota-bene"></span> Pour effectuer le nettoyage 
+régulièrement, La commande peut être placée dans une crontab.
 
 ## Automatisation des démarrage/arrêt  {#te-manex-ref:c0a71f5b-d7e6-466d-b109-3e78ab407ebc}
 
-Pour que TE démarre, et s'arrête, lors du démarrage, et l'arrêt, du système, il vous faut intégrer 
-le script `ted` au système d'init de votre serveur.
+Pour que TE démarre, et s'arrête, lors du démarrage, et l'arrêt, du système, le
+script `ted` doit être intégré au système d'initialisation de votre serveur.
 
-Vous trouverez ci-dessous, un exemple pour les distributions de type RedHat et Debian.
+Exemple pour les distributions de type *RedHat* et *Debian* :
 
-Distribution de type RedHat
+Distribution de type *RedHat*
 :   
 
-Les distributions de type RedHat utilisent la commande `chkconfig` pour
+Les distributions de type *RedHat* utilisent la commande `chkconfig` pour
 administrer les scripts rc/init.
 
 Faire un lien symbolique de `$TE_HOME/bin/ted` dans le répertoire `/etc/rc.d/init.d/` :
@@ -112,10 +121,10 @@ Enregistrer `ted` :
     # chkconfig --list ted
     ted             0:arrêt 1:arrêt 2:marche        3:marche        4:marche        5:marche        6:arrêt
 
-Distribution de type Debian
+Distribution de type *Debian*
 :   
 
-Les distributions de type Debian utilisent la commande `update-rc.d` pour administrer les scripts rc/init.
+Les distributions de type *Debian* utilisent la commande `update-rc.d` pour administrer les scripts rc/init.
 
 Faire un lien symbolique de `$TE_HOME/bin/ted` dans le répertoire `/etc/init.d/` :
 
@@ -135,3 +144,6 @@ Enregistrer `ted` :
      /etc/rc4.d/S20ted -> ../init.d/ted
      /etc/rc5.d/S20ted -> ../init.d/ted
 
+<!--links -->
+
+[tedstart]: #te-manex-ref:560d0dfe-8b7e-4bba-8262-c847f38c1ef4
