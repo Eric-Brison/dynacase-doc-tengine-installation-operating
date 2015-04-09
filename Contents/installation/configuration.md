@@ -4,14 +4,16 @@
 
 Les paramètres du serveur TE sont définis dans le fichier `$TE_HOME/etc/te.conf`.
 
-Lors de la première utilisation il vous faudra copier le fichier d'exemple `te.conf.sample` dans `te.conf` :
+Lors de la première utilisation, le fichier d'exemple `te.conf.sample` être
+copié dans le fichier `te.conf` :
 
     # cp $TE_HOME/etc/te.conf.sample $TE_HOME/etc/te.conf
 
 
 ## Paramètres {#te-manex-ref:0260dfe8-d1c9-40c8-b2ba-666988ae4c09}
 
-Vous trouverez ci-dessous le contenu du fichier de configuration (configuration par défaut) présenté par rubrique. Chacun des paramètres explicité.
+Le fichier de configuration est composé des paramètres suivants :
+
 
 Base de données 
 :  
@@ -89,7 +91,9 @@ Serveur OpenOffice.org
     TE_OOO_SERVER_PORT=8123
 
 Les chemin d'accès aux fichiers OpenOffice.org sont relatifs.  
-Normalement vous ne devez que vous assurer que `TE_OOO_BASE_DIR` est correctement valué.  
+
+Le paramètre principal `TE_OOO_BASE_DIR` est utilisé pour définir les paramètres
+secondaires :
 
 * `TE_OOO_SERVER_ENABLED` : permet d'activer (`yes`) ou désactiver (`no`) le
   lancement du serveur OpenOffice. Attention : cela ne désactive pas
@@ -103,11 +107,11 @@ Normalement vous ne devez que vous assurer que `TE_OOO_BASE_DIR` est correctemen
   OpenOffice.
 
 * `TE_OOO_CLASSPATH` :  _classpath_ Java pour accéder aux librairies Java
-  d'OpenOffice. Les classes nécessaires sont contenus dans `unoil.jar`,
-  `juh.jar`, `jurt.jar` et `ridl.jar`.
+  d'OpenOffice. Les classes nécessaires sont contenus dans les fichiers java suivants :
+  `unoil.jar`, `juh.jar`, `jurt.jar` et `ridl.jar`.
   
-  La valeur de `TE_OOO_CLASSPATH` est différente suivant que vous utilisez
-  OpenOffice ou LibreOffice :
+  La valeur de `TE_OOO_CLASSPATH` est différente suivant l'utilisation d'
+  OpenOffice ou de LibreOffice :
   
   * Exemple de valeur pour OpenOffice :
     
@@ -119,6 +123,9 @@ Normalement vous ne devez que vous assurer que `TE_OOO_BASE_DIR` est correctemen
         [bash]
         TE_OOO_CLASSPATH="${TE_OOO_BASE_DIR}/program/classes/unoil.jar:${TE_OOO_BASE_DIR}/ure/share/java/juh.jar:${TE_OOO_BASE_DIR}/ure/share/java/jurt.jar:${TE_OOO_BASE_DIR}/ure/share/java/ridl.jar"
 
+  Sous debian (ou ubuntu), pour LibreOffice, les classes java sont fournies par 
+  le paquet "`ure`" (LibreOffice UNO runtime environment).
+
 * `TE_OOO_JVM_OPTS` : variable pour positionner des paramètres spécifiques pour
   la JVM si besoin.
 
@@ -128,6 +135,7 @@ Normalement vous ne devez que vous assurer que `TE_OOO_BASE_DIR` est correctemen
 
 Serveur Tika
 :   
+  Ces variables dépendent de l'installation de [Tika server][tikaserver].
 
     [bash]
     # -- Tika-server Jar file
@@ -150,12 +158,12 @@ Serveur Tika
 ## Type mimes  {#te-manex-ref:3e1d421e-9cb9-48f5-8c86-dd873a970eec}
 
 La détection du type MIME textuel et du type MIME système des fichiers par TE
-est paramétrable via des règles appliqués sur l'extension du nom du fichier.
+est paramétrable via des règles appliquées sur l'extension du nom du fichier.
 
 Ces règles sont décrites au format XML dans le fichier
 `$TE_HOME/etc/user-mime.conf`.
 
-Un fichier d'exemple est fournit par défaut dans
+Un fichier d'exemple est fourni par défaut dans
 `$TE_HOME/etc/user-mime.conf.sample`.
 
 Exemple de définition des types MIME textuel et système pour les fichiers
@@ -180,3 +188,6 @@ Ces règles `$TE_HOME/etc/user-mime.conf` viennent en complément et sont évalu
 en priorité par rapport au jeu de règles fournit par défaut par TE (consultable
 dans le fichier `$TE_HOME/etc/mime.conf`).
 
+<!-- links -->
+
+[tikaserver]:  #tika-server

@@ -45,7 +45,7 @@ La mise à jour de TE consiste à :
 Ces composants sont utilisés par les moteurs de transformation livrés en standard.
 
 <span class="flag inline nota-bene"></span> Les versions à utiliser dépendent de la version du serveur TE. Elles sont identifiées
-dans [les notes de version][release_note].
+dans [les notes de version][release_notes].
 
 ### OpenOffice {#openoffice}
 
