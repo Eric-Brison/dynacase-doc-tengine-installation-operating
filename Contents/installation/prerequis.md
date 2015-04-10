@@ -40,9 +40,6 @@ tika-server-1.7.jar
 a2ps et ps2pdf14
 :   TE utilise les outils `a2ps` et `ps2pdf14` pour les conversions texte vers PDF. Ils sont fournis par [a2ps](http://www.gnu.org/software/a2ps/) et [Ghostscript](http://pages.cs.wisc.edu/~ghost/).
 
-recode
-:   TE utilise la commande `recode` (fournie par [GNU recode](http://recode.progiciels-bpi.ca/index.html)).
-
 perl
 :   TE utilise la commande `perl` (fournie par [Perl](http://www.perl.org/)).
 
