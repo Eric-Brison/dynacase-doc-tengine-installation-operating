@@ -47,8 +47,25 @@ book:
       - level:   2
         content: programmation/createengine.md
       - level:   2
-        content: programmation/createclient.md
+        content: programmation/class_TransformationEngine_Client.md
+        subtoc:  3
         flags:
-           new : "1.4"
+           new:  "1.4"
+      - level:   3
+        content: programmation/class_TransformationEngine_Client/sendTransformation.md
+        flags:
+           new:  "1.4"
+      - level:   3
+        content: programmation/class_TransformationEngine_Client/getInfo.md
+        flags:
+           new:  "1.4"
+      - level:   3
+        content: programmation/class_TransformationEngine_Client/getTransformation.md
+        flags:
+           new:  "1.4"
+      - level:   3
+        content: programmation/class_TransformationEngine_Client/abortTransformation.md
+        flags:
+           new:  "1.4"
       - level:   2
         content: programmation/engines.md
