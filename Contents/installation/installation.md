@@ -34,6 +34,12 @@ La mise à jour de TE consiste à :
 
 * déployer le contenu de l'archive de la nouvelle version sur l'installation de
   l'ancienne version ;
+    
+    * télécharger la version courante (e.g. `http://eec.anakeen.com/public/tengine/dynacase-te-current.tar.gz` ;
+    * décompresser le contenu de l'archive de la version courante (e.g. `dynacase-te-current.tar.gz`) dans le répertoire racine de votre installation de TE (e.g. `/opt/dynacase-te`) :
+    
+        # wget -O /tmp/dynacase-te-current.tar.gz http://eec.anakeen.com/public/tengine/dynacase-te-current.tar.gz
+        # tar -C /opt/dynacase-te -zxvf /tmp/dynacase-te-current.tar.gz --strip-components 1
 
 * suivre ensuite les éventuelles procédures de migration fournies dans les
   [notes de version][release_notes] ;
