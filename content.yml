@@ -9,10 +9,6 @@ book:
       - level:    1
         content:  "preambule.md"
         subtoc:  2
-      - level:   3
-        content:  "historique/1-4.md"
-      - level:   3
-        content:  "historique/1-3.md"
 #
       - level:   1
         content: installation/_introduction.md
@@ -67,5 +63,11 @@ book:
         content: programmation/class_TransformationEngine_Client/abortTransformation.md
         flags:
            new:  "1.4"
+      - level:   3
+        content: programmation/class_TransformationEngine_Client/purgeTransformation.md
+        flags:
+           new:  "1.4"
       - level:   2
         content: programmation/engines.md
+      - level:   2
+        content: programmation/database.md

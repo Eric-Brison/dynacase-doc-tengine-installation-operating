@@ -48,16 +48,13 @@ La mise à jour de TE consiste à :
 
 ## Installation des éléments additionnels {#te-manex-ref:45e8dbf4-5110-451d-b6a9-53ed45893548}
 
-Ces composants sont utilisés par les moteurs de transformation livrés en standard.
+Installer les composants logiciel requis par TE (voir [Pré-requis][pre-requis])
+puis procéder à leur configuration (voir [Configuration du serveur TE][te_config]).
 
 <span class="flag inline nota-bene"></span> Les versions à utiliser dépendent de la version du serveur TE. Elles sont identifiées
 dans [les notes de version][release_notes].
 
-### OpenOffice {#openoffice}
-
-Installer OpenOffice à partir des paquets officiels [OpenOffice](http://www.openoffice.org/).
-
-### tika-server {#tika-server}
+### Installation de tika-server {#tika-server}
 
 L'archive `tika-server-<version>.jar` peut être obtenue en téléchargement sur
 le site officiel de [Apache Tika](http://tika.apache.org/download.html), ou
@@ -73,3 +70,5 @@ sous-répertoire `$TE_HOME/lib/engines` :
 <!-- links -->
 [release_notes]: #te-manex-ref:da01abb1-163e-434f-b56c-eb918c479cb9
 [ted_start_stop]: #te-manex-ref:560d0dfe-8b7e-4bba-8262-c847f38c1ef4
+[pre-requis]: #te-manex-ref:a0146a31-9ab5-4dfe-978d-7a5d3322036d
+[te_config]: #te-manex-ref:0dc32061-9f16-4941-b1f0-8d66d8f8f8bd

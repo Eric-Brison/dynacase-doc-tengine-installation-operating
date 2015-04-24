@@ -6,7 +6,7 @@ PostgreSQL &gt;= 9.x
 :   Le TE utilise la base de donnée pour stocker les informations de gestion des travaux.
     Cette base de donnée peut être locale (sur le même serveur) ou distante.
 	
-PHP &gt;= 5.3 (cli)
+PHP &gt;= 5.4 (cli)
 :   TE est écrit en PHP et nécessite donc l'interpréteur [PHP](http://www.php.net/) (php-cli) avec les extensions suivantes :
     
         curl
@@ -16,7 +16,6 @@ PHP &gt;= 5.3 (cli)
         pgsql
         posix
         SimpleXML
-        xml
 
 Java Runtime Environment 6 (ou 7)
 :   TE nécessite un environnement Java 6 (ou 7) pour utiliser l'API Java d'OpenOffice en mode serveur. Il est mis à disposition soit par [OpenJDK](http://openjdk.java.net/install/) ou par [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
@@ -39,9 +38,6 @@ tika-server-1.7.jar
 
 a2ps et ps2pdf14
 :   TE utilise les outils `a2ps` et `ps2pdf14` pour les conversions texte vers PDF. Ils sont fournis par [a2ps](http://www.gnu.org/software/a2ps/) et [Ghostscript](http://pages.cs.wisc.edu/~ghost/).
-
-perl
-:   TE utilise la commande `perl` (fournie par [Perl](http://www.perl.org/)).
 
 convert
 :   TE utilise l'outil de conversion d'image `convert` (fourni par [ImageMagick](http://www.imagemagick.org/)).

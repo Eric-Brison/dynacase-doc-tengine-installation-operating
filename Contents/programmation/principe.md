@@ -91,7 +91,7 @@ La communication entre Dynacase et le Request server permet au client de :
     * En parallèle, le service `Renderer server` scrute les nouvelles tâches qui
       sont en attente de traitement (`W`).
     * Lorsqu'une nouvelle tâche est prise pour exécution, la tâche passe en
-      status `P`.
+      status `P` (Processing).
     * Si la conversion est réussie, la tâche passe à l'état `D` (Done) et
       Dynacase est notifié via l'URL de callback.
     * Lorsque Dynacase a récupéré le résultat, alors la tâche est supprimée.
