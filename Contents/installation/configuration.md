@@ -29,16 +29,15 @@ Serveur de communication
 :  
 
     [bash]
-    #---- REQUEST PART ----
     PORT=51968                        # port number where listen client
     LISTEN_ADDRESS=0.0.0.0            # address mask to listen : listen everybody by default
     REQUEST_MAX_CLIENT=15             # max request in parallel 
-    REQUEST_DIRECTORY=/var/tmp        # directory where source files to transform are saved
+    TE_WORK_DIR=/var/tmp              # Directory where task's files and engine's temporary files are stored 
 
 * `PORT` : port d'écoute sur serveur
 * `LISTEN_ADDRESS` : plage d'adresse (mask) d'écoute du serveur
 * `REQUEST_MAX_CLIENT` : nombre maximum de connexions client simultanées
-* `REQUEST_DIRECTORY` : répertoire de stockage des fichiers reçus
+* `TE_WORK_DIR` : répertoire de stockage des fichiers reçus
 
 Mécanisme de purge 
 :  
@@ -47,27 +46,31 @@ Mécanisme de purge
     PURGE_DAYS=7                      # remove tasks older than 7 days
     PURGE_INTERVAL=100                # trigger tasks purge every 100 requests (set to 0 to disable purge)
 
-Ces paramètres permettent de définir le fonctionnement de la purge (suppression des travaux terminés).
+Ces paramètres permettent de définir le fonctionnement de la purge (suppression
+des transformations dont la date de création est inférieure à une limite
+donnée).
 
-* `PURGE_DAYS` : les travaux antérieurs à ce nombre de jours sont purgés
-* `PURGE_INTERVAL` : précise la fréquence de la purge, la purge est lancée toute les _n_ requêtes reçues par le serveur
+Si la tâche est en cours d'exécution, le processus de la tâche est tué.
+
+Ensuite, quelque soit le status de la transformation, la transformation est
+supprimée avec son répertoire de travail.
+
+* `PURGE_DAYS` : les travaux antérieurs à ce nombre de jours sont purgés. 
+* `PURGE_INTERVAL` : précise la fréquence de la purge, la purge est lancée
+  toute les _n_ transformations exécutés.
 
 Serveur de transformation 
 :  
 
     [bash]
-    #---- RENDERING PART ----
     RENDERING_MAX_CLIENT=10           # max conversion in parallel 
-    RENDERING_DIRECTORY=/var/tmp      # directory where converted files are saved
 
 * `RENDERING_MAX_CLIENT` Nombre de moteurs de transformation activé en parallèle 
-* `RENDERING_DIRECTORY`  Répertoire de stockage des fichiers produits
 
 Identité pour les serveurs 
 :  
 
     [bash]
-    # -- Run TE servers as a user --
     TE_SERVER_USER=root
     TE_SERVER_DEBUG=no
 
@@ -81,7 +84,6 @@ Serveur OpenOffice.org
 :   
 
     [bash]
-    # -- Server-mode OpenOffice.org parameters
     TE_OOO_SERVER_ENABLED=yes
     TE_OOO_BASE_DIR=/replace/me/with/path/to/openoffice.org/directory
     TE_OOO_SERVER_SOFFICE=${TE_OOO_BASE_DIR}/program/soffice
@@ -138,7 +140,6 @@ Serveur Tika
   Ces variables dépendent de l'installation de [Tika server][tikaserver].
 
     [bash]
-    # -- Tika-server Jar file
     TE_TIKA_SERVER_ENABLED=yes
     TE_TIKA_SERVER_JAR="/replace/me/with/path/to/tika-server-#version#.jar"
     TE_TIKA_SERVER_HOST=127.0.0.1

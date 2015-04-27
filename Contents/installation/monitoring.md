@@ -6,11 +6,12 @@ monitorer ses principales fonctions.
 Elles sont disponibles dans le Centre d'Administration de Dynacase Platform.
 
 Elles sont distribuées par les modules `dynacase-tengine-configuration`
-(*Dynacase TEngine Configuration*) ou *`dynacase-tengine-monitor`*[^1]
+(*Dynacase TEngine Configuration*) ou `dynacase-tengine-monitor`[^1]
 (*Transformation Engine Monitor*)  [installables via Dynacase
 Control][dynacase_control].
 
-_Le fonctionnement du serveur TE est indépendant de l'installation des interfaces Web clientes._
+_Le fonctionnement du serveur TE est indépendant de l'installation des
+interfaces Web clientes._
 
 [^1]: Ce module n'est disponible que sous licence Anakeen.
 

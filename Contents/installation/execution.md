@@ -75,11 +75,11 @@ corriger cela, le nom d'hôte (tel que retourné par la commande
 `dnsdomainname`) doivent être corrects, et que le fichier `/etc/hosts` est correctement
 renseigné.
 
-## Nettoyage des fichiers temporaires (`ted cleantmpfiles`) {#cleantmpfiles}
+## Nettoyage des répertoires de travail (`ted cleantmpfiles`) {#cleantmpfiles}
 
-L'option `cleantmpfiles` permet de supprimer les fichiers temporaires nommés
-`tes-*` et `ter-*`, présents dans les répertoire `$REQUEST_DIRECTORY` et
-`$RENDERING_DIRECTORY` qui ont plus de 7 jours (valeur par défaut).
+L'option `cleantmpfiles` permet de supprimer les répertoires de travail des
+transformation nommés `te-task-*`, présents dans le répertoire `$TE_WORK_DIR`
+et qui ont plus de 7 jours (valeur par défaut).
 
     [bash]
     # $TE_HOME/bin/ted cleantmpfiles
