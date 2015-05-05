@@ -48,7 +48,8 @@ L'interruption de la tâche :
 
 * tue le processus de rendering si ce dernier est actif (`pid` de la tâche !=
   0) ;
-* supprimes les fichiers `infile` et `outfile` de la tâche.
+* les fichiers `infile` et `outfile` de la tâche sont conservés jusqu'à ce que
+  la tâche soit supprimée.
 
 ## Voir aussi {#te-manex-ref:2d6aed21-e289-40c2-972c-68288fe892dc}
 
