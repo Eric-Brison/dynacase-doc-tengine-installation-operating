@@ -65,7 +65,7 @@ Cette version introduit aussi le support de Tika en mode serveur afin
 d'accélérer les conversions texte et réduire la charge serveur.
 
 * utilisation de Tika en mode serveur ;
-* suppression des moteurs `html2txt`, `ooo2txt` et `pdf2txt` (tous emplacés par
+* suppression des moteurs `html2txt`, `ooo2txt` et `pdf2txt` (remplacés par
   `tika2txt`) ;
 * suppression des répertoires de travail `REQUEST_DIRECTORY` et
   `RENDERING_DIRECTORY` remplacés par une seul et même paramètre `TE_WORK_DIR`

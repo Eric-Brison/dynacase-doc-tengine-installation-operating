@@ -9,7 +9,8 @@ Supprime la demande de transformation.
     [php]
     string purgeTransformation ( string $tid, )
 
-Permet de supprimer une demande de transformation.
+Les fichiers d'entrée et de sortie liés à la tâche sont supprimés ainsi que la
+référence à la tâche.
 
 ### Avertissements {#te-manex-ref:dac2047a-7de3-417a-992f-fd0e36e87621}
 
@@ -36,6 +37,8 @@ l'opération n'a pu être réalisée.
 
 ## Historique {#te-manex-ref:7df8f27e-cb5c-4bd7-94a9-345653ef71cc}
 
+Aucun.
+
 ## Exemples {#te-manex-ref:78d10f99-2dd6-4d65-b852-53ed3ad46007}
 
     [php]
@@ -50,6 +53,8 @@ l'opération n'a pu être réalisée.
     }
 
 ## Notes {#te-manex-ref:3350f6fb-7bfc-40eb-8cba-4bb7267f406a}
+
+Aucune.
 
 ## Voir aussi {#te-manex-ref:6a098ed1-728b-440e-833c-e8c4d6c908c1}
 
