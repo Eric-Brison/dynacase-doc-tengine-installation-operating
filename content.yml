@@ -44,7 +44,7 @@ book:
         content: programmation/createengine.md
       - level:   2
         content: programmation/class_TransformationEngine_Client.md
-        subtoc:  3
+        subtoc:  1
         flags:
            new:  "1.4"
       - level:   3
