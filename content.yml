@@ -2,7 +2,7 @@ book:
     title: "Installation et exploitation"
     module: "Tranformation Engine"
     version: "1.4"
-    edition: "1"
+    edition: "2"
     id_prefix: "te-manex-ref"
     githubsrc: "https://github.com/Anakeen/dynacase-doc-tengine-installation-operating"
     chapters:
