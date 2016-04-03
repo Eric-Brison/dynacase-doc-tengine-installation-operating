@@ -3,6 +3,7 @@ book:
     module: "Tranformation Engine"
     version: "1.4"
     edition: "1"
+    id_prefix: "te-manex-ref"
     githubsrc: "https://github.com/Anakeen/dynacase-doc-tengine-installation-operating"
     chapters:
 #
