@@ -54,7 +54,7 @@ puis procéder à leur configuration (voir [Configuration du serveur TE][te_conf
 <span class="flag inline nota-bene"></span> Les versions à utiliser dépendent de la version du serveur TE. Elles sont identifiées
 dans [les notes de version][release_notes].
 
-### Installation de tika-server {#tika-server}
+### Installation de tika-server {#te-manex-ref:1d63e3b7-5ad5-4556-ad47-0ffa2258d903}
 
 L'archive `tika-server-<version>.jar` peut être obtenue en téléchargement sur
 le site officiel de [Apache Tika](http://tika.apache.org/download.html), ou

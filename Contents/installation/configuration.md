@@ -191,4 +191,4 @@ dans le fichier `$TE_HOME/etc/mime.conf`).
 
 <!-- links -->
 
-[tikaserver]:  #tika-server
+[tikaserver]:  #te-manex-ref:1d63e3b7-5ad5-4556-ad47-0ffa2258d903
