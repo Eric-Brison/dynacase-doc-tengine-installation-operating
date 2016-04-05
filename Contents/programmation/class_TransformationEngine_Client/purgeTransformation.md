@@ -56,7 +56,7 @@ Aucun.
 
 Aucune.
 
-## Voir aussi {#te-manex-ref:6a098ed1-728b-440e-833c-e8c4d6c908c1}
+## Voir aussi  {#te-manex-ref:5d0de1e3-9980-4a51-9ad5-4a1582141e94}
 
 - [`getInfo()`][Client::getInfo]
 - [`abortTransformation()`][Client::abortTransformation]

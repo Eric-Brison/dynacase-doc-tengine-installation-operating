@@ -75,7 +75,7 @@ corriger cela, le nom d'hôte (tel que retourné par la commande
 `dnsdomainname`) doivent être corrects, et que le fichier `/etc/hosts` est correctement
 renseigné.
 
-## Nettoyage des répertoires de travail (`ted cleantmpfiles`) {#cleantmpfiles}
+## Nettoyage des répertoires de travail (`ted cleantmpfiles`) {#te-manex-ref:618a6b8b-630f-43fc-8deb-0ed4d4d1d9ef}
 
 L'option `cleantmpfiles` permet de supprimer les répertoires de travail des
 transformation nommés `te-task-*`, présents dans le répertoire `$TE_WORK_DIR`

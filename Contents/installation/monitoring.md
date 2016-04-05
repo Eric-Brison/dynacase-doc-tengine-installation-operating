@@ -16,4 +16,4 @@ interfaces Web clientes._
 [^1]: Ce module n'est disponible que sous licence Anakeen.
 
 <!-- links -->
-[dynacase_control]: http://docs.anakeen.com/dynacase/3.2/dynacase-doc-platform-operating-manual/website/book/manex-ref:62f81ecf-eaed-46f0-8099-75a5ca7a1775.html#manex-ref:7390e1ee-cd3d-44f0-8582-2144cbeab6cf
+[dynacase_control]: #manex-ref:7390e1ee-cd3d-44f0-8582-2144cbeab6cf

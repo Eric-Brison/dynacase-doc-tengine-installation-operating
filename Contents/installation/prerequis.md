@@ -33,7 +33,7 @@ OpenOffice (4.1.1) ou LibreOffice (4.4.0)
 tika-server-1.7.jar
 :   TE nécessite l'outil tika-server du projet
     [Apache Tika](http://tika.apache.org/) pour l'extraction de texte (voir
-    [tika-server](#tika-server)). À la date de rédaction de ces pré-requis, la
+    [tika-server](#te-manex-ref:1d63e3b7-5ad5-4556-ad47-0ffa2258d903)). À la date de rédaction de ces pré-requis, la
     version actuellement disponible et préconisée est la `1.7`.
 
 a2ps et ps2pdf14

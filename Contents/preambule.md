@@ -88,7 +88,7 @@ sont à faire :
 
 * Stopper le serveur TE.
 * Installer `tika-server-<version>.jar` : voir [Installation de
-  tika-server](#tika-server).
+  tika-server](#te-manex-ref:1d63e3b7-5ad5-4556-ad47-0ffa2258d903).
 * Configurer les variables `TE_TIKA_SERVER_*` dans `etc/te.conf` : voir
   [Configuration serveur Tika](#te-manex-ref:0260dfe8-d1c9-40c8-b2ba-666988ae4c09).
 * Supprimer les variables `REQUEST_DIRECTORY` et `RENDERING_DIRECTORY` dans
