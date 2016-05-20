@@ -15,8 +15,8 @@ copié dans le fichier `te.conf` :
 Le fichier de configuration est composé des paramètres suivants :
 
 
-Base de données 
-:  
+### Base de données  {#te-manex-ref:c2b4a722-8575-4038-b7d4-c815177fcb5b}
+
 
     [bash]
     # Transformation Engine Configuration
@@ -25,8 +25,8 @@ Base de données
 
 * `TE_PG_SERVICE` : permet d'indiquer le [service d'accès à la base de données](#te-manex-ref:f6506413-f567-4b5f-b964-510570653886) *TE*
 
-Serveur de communication 
-:  
+### Serveur de communication  {#te-manex-ref:dfa4fcc6-d3c5-4490-a354-7c46119df39c}
+
 
     [bash]
     PORT=51968                        # port number where listen client
@@ -39,8 +39,8 @@ Serveur de communication
 * `REQUEST_MAX_CLIENT` : nombre maximum de connexions client simultanées
 * `TE_WORK_DIR` : répertoire de stockage des fichiers reçus
 
-Mécanisme de purge 
-:  
+### Mécanisme de purge  {#te-manex-ref:33c5e5b7-6800-4ac9-8724-f8ca962da1d9}
+
 
     [bash]
     PURGE_DAYS=7                      # remove tasks older than 7 days
@@ -59,16 +59,15 @@ supprimée avec son répertoire de travail.
 * `PURGE_INTERVAL` : précise la fréquence de la purge, la purge est lancée
   toute les _n_ transformations exécutés.
 
-Serveur de transformation 
-:  
+### Serveur de transformation  {#te-manex-ref:4326764e-4052-4448-a51a-0b1337085009}
+
 
     [bash]
     RENDERING_MAX_CLIENT=10           # max conversion in parallel 
 
 * `RENDERING_MAX_CLIENT` Nombre de moteurs de transformation activé en parallèle 
 
-Identité pour les serveurs 
-:  
+### Identité pour les serveurs  {#te-manex-ref:67e7b7e8-f7bd-4084-8baf-58fd7581ddee}
 
     [bash]
     TE_SERVER_USER=root
@@ -80,8 +79,9 @@ Identité pour les serveurs
   te_rendering_server, OpenOffice et Tika dans syslog (pour analyser les
   éventuels problèmes de démarrage de ces services).
 
-Serveur OpenOffice.org 
-:   
+### Serveur OpenOffice.org / LibreOffice.org {#te-manex-ref:600fb6d4-d9e3-4032-a9b7-ca60c276f728}
+
+Sites officiels des logiciels : [OpenOffice.org](https://www.openoffice.org/) / [LibreOffice.org](http://www.libreoffice.org/).
 
     [bash]
     TE_OOO_SERVER_ENABLED=yes
@@ -103,14 +103,35 @@ secondaires :
   seront alors mis en erreur.
 
 * `TE_OOO_BASE_DIR` : chemin d'accès au répertoire racine d'installation de
-  OpenOffice.
+  OpenOffice ou LibreOffice. Sous la distribution [Ubuntu](http://www.ubuntu.com/) 
+  le chemin est `/usr/lib/libreoffice`.  
+  <span class="flag inline release from">1.4.1</span>Ce paramètre est facultatif. 
+  Il sert, dans le configuration par défaut, à repérer le programme `soffice` 
+  qui est défini par variable `TE_OOO_SERVER_SOFFICE` .
 
 * `TE_OOO_SERVER_SOFFICE` : chemin d'accès au programme *soffice* de
-  OpenOffice.
+  OpenOffice/LibreOffice.
 
-* `TE_OOO_CLASSPATH` :  _classpath_ Java pour accéder aux librairies Java
+
+* `TE_OOO_JVM_OPTS` : variable pour positionner des paramètres spécifiques pour
+  la JVM si besoin.
+
+* `TE_OOO_SERVER_HOST` : adresse IP d'écoute du serveur OpenOffice/LibreOffice.
+
+* `TE_OOO_SERVER_PORT` : port TCP d'écoute du serveur OpenOffice/LibreOffice.
+
+* `TE_OOO_PRODUCTKEY` : <span class="flag inline release from">1.4.1</span> 
+  Paramètre optionnel. Valeur possible "LibreOffice" ou "OpenOffice".
+  Il permet de d'indiquer explicitement le logiciel utilisé. Il est renseigné automatiquement
+  s'il n'est pas indiqué.
+
+
+#### Ancienne version 1.4.0 {#te-manex-ref:1895359c-584f-43ea-af1c-77fc5b077b63}
+
+* <span class="flag inline release until">1.4.0</span> `TE_OOO_CLASSPATH` :  _classpath_ Java pour accéder aux librairies Java
   d'OpenOffice. Les classes nécessaires sont contenus dans les fichiers java suivants :
   `unoil.jar`, `juh.jar`, `jurt.jar` et `ridl.jar`.
+  
   
   La valeur de `TE_OOO_CLASSPATH` est différente suivant l'utilisation d'
   OpenOffice ou de LibreOffice :
@@ -127,15 +148,14 @@ secondaires :
 
   Sous debian (ou ubuntu), pour LibreOffice, les classes java sont fournies par 
   le paquet "`ure`" (LibreOffice UNO runtime environment).
+  
+  <span class="flag inline release from">1.4.1</span> Ce paramètre est détecté 
+  automatiquement et ne nécessite plus d'être renseigné.
 
 * `TE_OOO_JVM_OPTS` : variable pour positionner des paramètres spécifiques pour
   la JVM si besoin.
 
-* `TE_OOO_SERVER_HOST` : adresse IP d'écoute du serveur OpenOffice.
-
-* `TE_OOO_SERVER_PORT` : port TCP d'écoute du serveur OpenOffice.
-
-Serveur Tika
+### Serveur Tika {#te-manex-ref:81e26638-a620-4137-95f7-57657a431f3a}
 :   
   Ces variables dépendent de l'installation de [Tika server][tikaserver].
 
@@ -191,4 +211,4 @@ dans le fichier `$TE_HOME/etc/mime.conf`).
 
 <!-- links -->
 
-[tikaserver]:  #te-manex-ref:1d63e3b7-5ad5-4556-ad47-0ffa2258d903
+[tikaserver]:  #te-manex-ref:862c633f-e53f-4f7e-8544-fc795eb03acd

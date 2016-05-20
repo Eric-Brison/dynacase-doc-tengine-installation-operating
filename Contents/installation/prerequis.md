@@ -23,8 +23,12 @@ Java Runtime Environment 6 (ou 7)
 OpenOffice (4.1.1) ou LibreOffice (4.4.0)
 :   TE nécessite [Apache OpenOffice](http://www.openoffice.org) ou
     [LibreOffice](http://www.libreoffice.org). À la date de rédaction de ces
-    pré-requis, les dernières versions disponibles de OpenOffice (version
+    pré-requis, les versions d'OpenOffice (version
     4.1.1) et LibreOffice (version 4.4.0) ont été testées et sont compatibles.
+    
+    <span class="flag inline release until">1.4.1</span> Les versions de 
+    [LibreOffice](http://www.libreoffice.org) 5.0 et 5.1  ont été testées et 
+    sont compatibles.
     
     Des différences peuvent exister dans le support et le rendu des documents
     entre OpenOffice et LibreOffice. Le choix de l'utilisation de l'un ou
@@ -33,7 +37,7 @@ OpenOffice (4.1.1) ou LibreOffice (4.4.0)
 tika-server-1.7.jar
 :   TE nécessite l'outil tika-server du projet
     [Apache Tika](http://tika.apache.org/) pour l'extraction de texte (voir
-    [tika-server](#te-manex-ref:1d63e3b7-5ad5-4556-ad47-0ffa2258d903)). À la date de rédaction de ces pré-requis, la
+    [tika-server][tika-server]). À la date de rédaction de ces pré-requis, la
     version actuellement disponible et préconisée est la `1.7`.
 
 a2ps et ps2pdf14
@@ -97,3 +101,4 @@ Le nombre maximum de connections (`max_connections`) à la base de données est 
 
 [^1]: Les paramètres `REQUEST_MAX_CLIENT` et `RENDERING_MAX_CLIENT` sont modifiables lors de la [configuration du server](#te-manex-ref:0dc32061-9f16-4941-b1f0-8d66d8f8f8bd).
 
+[tika-server]: #te-manex-ref:862c633f-e53f-4f7e-8544-fc795eb03acd

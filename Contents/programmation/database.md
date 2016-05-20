@@ -2,7 +2,7 @@
 
 ## Liste des tables {#te-manex-ref:9cc63505-d570-4688-aae0-3f4397e3d572}
 
-### Table `task` {#te-manex-ref:ce89fdb8-7287-4baf-aa72-9ad341b05386}
+### Table `task` {#te-manex-ref:5cb580ac-d66e-47e4-8171-d70dff431a7b}
 
 La table `task` contient les demandes de transformation.
 
@@ -46,7 +46,7 @@ La table `task` contient les demandes de transformation.
 :   Dernier commentaire de la transformation (mis à jour durant le déroulement
     de la transformation).
 
-### Table `histo` {#te-manex-ref:f698f9d2-09d5-4401-bbba-4d79aa208bc0}
+### Table `histo` {#te-manex-ref:17aef54f-8009-4bd7-bd59-d9415c31785a}
 
 La table `histo` contient les messages d'information émis durant le traitement
 de la transformation.
@@ -60,7 +60,7 @@ de la transformation.
 (text) `comment`
 :   Message/commentaire.
 
-### Table `engine` {#te-manex-ref:7649593d-dba0-41c4-bcd6-7242d3d73a0e}
+### Table `engine` {#te-manex-ref:075d6df3-8f48-490e-82db-1d482e099129}
 
 La table `engine` contient la liste des moteurs disponibles, les types MIME
 supportés en entré ces moteurs et le chemin du moteur a exécuter.

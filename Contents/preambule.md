@@ -46,10 +46,17 @@ Dynacase Platform
 Apache Tika Server
 :  version 1.7
 
-OpenOffice.org
-:  4.0
+OpenOffice.org / LibreOffice.org
+:  4.0 &nbps;&nbps;&nbps;&nbps;&nbps;&nbps; /    4.0 - 5.0 - 5.1
 
 ### Releases {#te-manex-ref:a5f86548-3543-4c77-a240-227b1913b26a}
+
+#### Release 1.4.1 {#te-manex-ref:3640ee47-16c1-418c-92cc-e09e8a711ed3}
+
+Cette version permet d'utiliser les versions 5.0 et 5.1 de
+[LibreOffice](http://www.libreoffice.org).
+
+Le [paramètrage de LibreOffice/OpenOffice][ooo-config] a été simplifiée.
 
 #### Release 1.4.0 {#te-manex-ref:5df59eae-25aa-486a-913e-93c09b9cc542}
 
@@ -88,7 +95,7 @@ sont à faire :
 
 * Stopper le serveur TE.
 * Installer `tika-server-<version>.jar` : voir [Installation de
-  tika-server](#te-manex-ref:1d63e3b7-5ad5-4556-ad47-0ffa2258d903).
+  tika-server][tika-server].
 * Configurer les variables `TE_TIKA_SERVER_*` dans `etc/te.conf` : voir
   [Configuration serveur Tika](#te-manex-ref:0260dfe8-d1c9-40c8-b2ba-666988ae4c09).
 * Supprimer les variables `REQUEST_DIRECTORY` et `RENDERING_DIRECTORY` dans
@@ -131,8 +138,10 @@ Pour la mise à jour de la liste des moteurs :
 * Re-importer la définition de vos propres moteurs.
 
 <!-- links -->
-[std_engines]: #te-manex-ref:49dd054a-e596-4ebe-9e75-adca937f630b
-[add_engines]: #te-manex-ref:87061b8c-19ca-4a7b-b370-706ae3fe1160
-[installation]: #te-manex-ref:99a9bb66-739f-4fa4-88f9-fe236a9a8e7c
-[exploitation]: #te-manex-ref:cdff4ee0-3ed7-4293-8de9-ab53dc8ad312
+[std_engines]:    #te-manex-ref:49dd054a-e596-4ebe-9e75-adca937f630b
+[add_engines]:    #te-manex-ref:87061b8c-19ca-4a7b-b370-706ae3fe1160
+[installation]:   #te-manex-ref:99a9bb66-739f-4fa4-88f9-fe236a9a8e7c
+[exploitation]:   #te-manex-ref:cdff4ee0-3ed7-4293-8de9-ab53dc8ad312
 [fonctionnement]: #te-manex-ref:674a6c70-eb4e-415d-8f03-5a2a7142578e
+[tika-server]:    #te-manex-ref:862c633f-e53f-4f7e-8544-fc795eb03acd
+[ooo-config]:     #te-manex-ref:600fb6d4-d9e3-4032-a9b7-ca60c276f728

@@ -55,7 +55,7 @@ l'opération n'a pu être réalisée.
 
 ## Notes {#te-manex-ref:aedb722a-2b34-4fd5-ae9f-303c64256a18}
 
-## Voir aussi {#te-manex-ref:6a098ed1-728b-440e-833c-e8c4d6c908c1}
+## Voir aussi  {#te-manex-ref:146d221a-be6e-46bd-8a46-3c9176d9a75b}
 
 - [`sendTransformation()`][Client::sendTransformation]
 - [`getInfo()`][Client::getInfo]
