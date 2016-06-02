@@ -47,7 +47,7 @@ Apache Tika Server
 :  version 1.7
 
 OpenOffice.org / LibreOffice.org
-:  4.0 &nbps;&nbps;&nbps;&nbps;&nbps;&nbps; /    4.0 - 5.0 - 5.1
+:  4.0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /    4.0 - 5.0 - 5.1
 
 ### Releases {#te-manex-ref:a5f86548-3543-4c77-a240-227b1913b26a}
 
